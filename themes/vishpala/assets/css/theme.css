@@ -2,37 +2,72 @@
 /* Designed by the Braille Institute for low-vision readers.                  */
 /* Active when [data-font="atkinson"] is set on <html>.                       */
 
+/* Each subset has its own rule and unicode-range, so the browser downloads  */
+/* only the files whose characters appear on the page.                        */
+
 @font-face {
   font-family: 'Atkinson Hyperlegible';
   font-style: normal;
   font-weight: 400;
   font-display: swap;
-  src: url('/theme/fonts/atkinson-hyperlegible-latin-ext-400-normal.woff2') format('woff2'),
-       url('/theme/fonts/atkinson-hyperlegible-latin-400-normal.woff2') format('woff2');
+  src: url('/theme/fonts/atkinson-hyperlegible-latin-400-normal.woff2') format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+@font-face {
+  font-family: 'Atkinson Hyperlegible';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url('/theme/fonts/atkinson-hyperlegible-latin-ext-400-normal.woff2') format('woff2');
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
 }
 @font-face {
   font-family: 'Atkinson Hyperlegible';
   font-style: italic;
   font-weight: 400;
   font-display: swap;
-  src: url('/theme/fonts/atkinson-hyperlegible-latin-ext-400-italic.woff2') format('woff2'),
-       url('/theme/fonts/atkinson-hyperlegible-latin-400-italic.woff2') format('woff2');
+  src: url('/theme/fonts/atkinson-hyperlegible-latin-400-italic.woff2') format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+@font-face {
+  font-family: 'Atkinson Hyperlegible';
+  font-style: italic;
+  font-weight: 400;
+  font-display: swap;
+  src: url('/theme/fonts/atkinson-hyperlegible-latin-ext-400-italic.woff2') format('woff2');
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
 }
 @font-face {
   font-family: 'Atkinson Hyperlegible';
   font-style: normal;
   font-weight: 700;
   font-display: swap;
-  src: url('/theme/fonts/atkinson-hyperlegible-latin-ext-700-normal.woff2') format('woff2'),
-       url('/theme/fonts/atkinson-hyperlegible-latin-700-normal.woff2') format('woff2');
+  src: url('/theme/fonts/atkinson-hyperlegible-latin-700-normal.woff2') format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+@font-face {
+  font-family: 'Atkinson Hyperlegible';
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: url('/theme/fonts/atkinson-hyperlegible-latin-ext-700-normal.woff2') format('woff2');
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
 }
 @font-face {
   font-family: 'Atkinson Hyperlegible';
   font-style: italic;
   font-weight: 700;
   font-display: swap;
-  src: url('/theme/fonts/atkinson-hyperlegible-latin-ext-700-italic.woff2') format('woff2'),
-       url('/theme/fonts/atkinson-hyperlegible-latin-700-italic.woff2') format('woff2');
+  src: url('/theme/fonts/atkinson-hyperlegible-latin-700-italic.woff2') format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+@font-face {
+  font-family: 'Atkinson Hyperlegible';
+  font-style: italic;
+  font-weight: 700;
+  font-display: swap;
+  src: url('/theme/fonts/atkinson-hyperlegible-latin-ext-700-italic.woff2') format('woff2');
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
 }
 
 /* ─── Font toggle — applies Atkinson when active ────────────────────────── */
@@ -78,6 +113,9 @@
 
   --measure:  70ch;
   --radius:   0.125rem;
+
+  /* Smallest size of a button or menu item (WCAG 2.5.5, level AAA) */
+  --target:   44px;
 }
 
 /* ─── Reduced motion ─────────────────────────────────────────────────────── */
@@ -196,7 +234,8 @@ body {
 .lang-switcher-trigger,
 .font-toggle,
 .search-trigger {
-  height: 2rem;
+  height: var(--target);
+  min-width: var(--target);
   padding: 0 6px;
   display: flex;
   align-items: center;
@@ -328,8 +367,10 @@ body {
 .lang-switcher-panel li { margin: 0; padding: 0; }
 
 .lang-switcher-panel a {
-  display: block;
-  padding: 0.5rem 0.75rem;
+  display: flex;
+  align-items: center;
+  min-height: var(--target);
+  padding: 0 0.75rem;
   font-family: system-ui, sans-serif;
   font-size: var(--fs-meta);
   font-weight: 700;
@@ -475,7 +516,8 @@ body {
     gap: 0.4rem;
     background: none;
     border: 2px solid var(--black);
-    padding: 4px 8px;
+    min-height: var(--target);
+    padding: 0 12px;
     cursor: pointer;
     font-family: system-ui, sans-serif;
     font-size: var(--fs-meta);
@@ -504,9 +546,15 @@ body {
 
   .site-nav ul {
     flex-direction: column;
-    align-items: flex-start;
-    gap: var(--space-sm);
+    align-items: stretch;
+    gap: 0;
     padding: var(--space-sm) 0;
+  }
+
+  .site-nav a {
+    display: flex;
+    align-items: center;
+    min-height: var(--target);
   }
 }
 
@@ -872,9 +920,11 @@ pre code { background: none; padding: 0; font-size: var(--fs-meta); }
   border-left: 2px solid var(--black);
   cursor: pointer;
   color: var(--colour-text-muted);
+  min-width: var(--target);
   padding: 0.5rem 0.65rem;
   display: flex;
   align-items: center;
+  justify-content: center;
   align-self: stretch;
 }
 

@@ -27,10 +27,7 @@
   <link rel="icon" href="/theme/img/vishpala-mark.svg" type="image/svg+xml">
   <link rel="stylesheet" href="/theme/css/theme.css">
   {% breadcrumbJsonLd trail, site.url %}
-  <script>
-    /* Apply the font preference before render to prevent a flash */
-    try { if (localStorage.getItem('vishpala-font') === 'atkinson') { document.documentElement.setAttribute('data-font', 'atkinson'); } } catch (e) {}
-  </script>
+  <script src="/theme/js/font-preference.js"></script>
 </head>
 <body>
   <a class="skip-link" href="#main-content">{{ t.skip }}</a>

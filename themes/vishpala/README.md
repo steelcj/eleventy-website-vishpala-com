@@ -39,7 +39,7 @@ Set the input directory before adding the plugin, so the theme knows where your 
 | `defaultColour` | `white` | Hero colour for sections not listed |
 | `logoColours` | red→blue, blue→red, yellow→white, white→yellow | Colour of the logo block beside each hero colour |
 | `languageLabels` | English, Français, Español | Names shown in the language switcher |
-| `licence` | CC BY-SA 4.0 | Footer licence link |
+| `licence` | CC BY 4.0 | Footer licence link |
 | `search` | `true` | Show the search button and modal (needs Pagefind in the build) |
 | `sitemap` | `true` | Generate `sitemap.xml` and `robots.txt` |
 | `strings` | English and French | Interface text per language, merged over the defaults |

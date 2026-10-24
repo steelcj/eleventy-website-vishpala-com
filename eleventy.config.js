@@ -19,7 +19,7 @@ export default function (eleventyConfig) {
       about: "white",
       contact: "yellow",
     },
-    licence: { label: "CC BY-SA 4.0", url: "https://creativecommons.org/licenses/by-sa/4.0/" },
+    licence: { label: "CC BY 4.0", url: "https://creativecommons.org/licenses/by/4.0/" },
     search: true,
     sitemap: true,
   });

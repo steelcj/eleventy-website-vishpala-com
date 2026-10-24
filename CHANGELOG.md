@@ -3,3 +3,18 @@
 All notable changes are recorded here, in the form of [Keep a Changelog](https://keepachangelog.com/en/1.1.0/). This repository follows [Semantic Versioning](https://semver.org/).
 
 ## [Unreleased]
+
+### Added
+
+- `netlify.toml`: the Netlify build settings, a redirect from `/` to `/en/`, and security headers on every response: a Content Security Policy allowing only the site's own resources, HSTS, `X-Content-Type-Options`, `Referrer-Policy`, `Permissions-Policy` and `Cross-Origin-Opener-Policy`.
+- The fallback root page has a first-level heading.
+
+### Changed
+
+- The script that applies the font preference before render is a file, `/theme/js/font-preference.js`, instead of inline, so the Content Security Policy allows it without a hash.
+- Header buttons, the mobile Menu button, mobile menu items and language menu items are at least 44 by 44 pixels (WCAG 2.5.5); they were 27 to 32 pixels tall.
+
+### Fixed
+
+- The site footer names the content licence as CC BY 4.0, matching decision 0001 and `REUSE.toml`; it said CC BY-SA 4.0. The Vishpala theme's default licence changes to match.
+- Atkinson Hyperlegible renders for all text when chosen. Each font subset now has its own `@font-face` rule and `unicode-range`; before, browsers loaded only the Latin Extended file, which has no basic Latin letters, and drew most text in a fallback font.

@@ -1,0 +1,25 @@
+# Netlify configuration: build settings, the root redirect and response headers.
+
+[build]
+  command = "npm run build"
+  publish = "_site"
+
+# Send the root to the English home page. force applies the redirect
+# even though the fallback page _site/index.html exists.
+[[redirects]]
+  from = "/"
+  to = "/en/"
+  status = 301
+  force = true
+
+# Security headers for every response.
+# script-src allows 'wasm-unsafe-eval' because Pagefind's search runs as WebAssembly.
+[[headers]]
+  for = "/*"
+  [headers.values]
+    Content-Security-Policy = "default-src 'self'; script-src 'self' 'wasm-unsafe-eval'; style-src 'self'; img-src 'self' data:; font-src 'self'; connect-src 'self'; object-src 'none'; base-uri 'self'; form-action 'self'; frame-ancestors 'none'; upgrade-insecure-requests"
+    Strict-Transport-Security = "max-age=63072000"
+    X-Content-Type-Options = "nosniff"
+    Referrer-Policy = "no-referrer"
+    Permissions-Policy = "camera=(), microphone=(), geolocation=(), payment=(), usb=()"
+    Cross-Origin-Opener-Policy = "same-origin"

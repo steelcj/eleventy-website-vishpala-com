@@ -3,7 +3,7 @@
  *
  * Usage, in eleventy.config.js:
  *   import vishpalaTheme from "./themes/vishpala/index.js";
- *   eleventyConfig.addPlugin(vishpalaTheme, { licence: { label: "CC BY-SA 4.0", url: "..." } });
+ *   eleventyConfig.addPlugin(vishpalaTheme, { licence: { label: "CC BY 4.0", url: "..." } });
  *
  * The theme registers its layouts as virtual templates under _includes/layouts/.
  * To override one, put a file with the same name in your own _includes/layouts/
@@ -68,7 +68,7 @@ const DEFAULTS = {
   // The contrasting colour of the logo block beside each hero colour.
   logoColours: { red: "blue", blue: "red", yellow: "white", white: "yellow" },
   languageLabels: { en: "English", fr: "Français", es: "Español" },
-  licence: { label: "CC BY-SA 4.0", url: "https://creativecommons.org/licenses/by-sa/4.0/" },
+  licence: { label: "CC BY 4.0", url: "https://creativecommons.org/licenses/by/4.0/" },
   search: true,
   sitemap: true,
   strings: {},

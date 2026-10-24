@@ -11,7 +11,7 @@ SPDX-FileCopyrightText = "Christopher Steel"
 SPDX-License-Identifier = "CC-BY-4.0"
 
 [[annotations]]
-path = ["eleventy.config.js", "package.json", "package-lock.json", "src/**", "themes/**"]
+path = ["eleventy.config.js", "netlify.toml", "package.json", "package-lock.json", "src/**", "themes/**"]
 SPDX-FileCopyrightText = "Christopher Steel"
 SPDX-License-Identifier = "MIT"
 
