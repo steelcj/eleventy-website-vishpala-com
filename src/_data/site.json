@@ -1,0 +1,17 @@
+{
+  "name": "Vishpala",
+  "url": "https://example.com",
+  "description": "Open source content pipelines: your content, in every language and format, on any website.",
+  "footerLinks": {
+    "en": [
+      {
+        "text": "How it works",
+        "url": "/en/approach/one-work-many-expressions/"
+      },
+      {
+        "text": "Contact",
+        "url": "/en/contact/"
+      }
+    ]
+  }
+}

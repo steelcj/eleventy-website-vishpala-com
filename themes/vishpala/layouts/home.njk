@@ -1,0 +1,38 @@
+---
+layout: layouts/base.njk
+---
+{#- The page's h1 is visually hidden, as the grid's block headings carry the visual hierarchy. -#}
+<h1 class="sr-only">{{ heading or title }}</h1>
+{%- set hasBody = content | trim | length %}
+<div class="home-grid{% if hasBody %} home-grid--with-body{% endif %}">
+  {%- for b in blocks %}
+  <section class="block block-{{ b.colour or 'white' }} span-{{ b.span or 3 }}"{% if b.id %} aria-labelledby="{{ b.id }}"{% endif %}>
+    <div>
+      <h2{% if b.id %} id="{{ b.id }}"{% endif %}>{% if b.url %}<a class="block-title-link" href="{{ b.url }}">{{ b.title }}</a>{% else %}{{ b.title }}{% endif %}</h2>
+      {%- if b.text %}
+      <p class="block-tagline">{{ b.text }}</p>
+      {%- endif %}
+    </div>
+    {%- if b.featured %}
+    <p class="block-hero"><a href="{{ b.featured.url }}">{{ b.featured.text }}</a></p>
+    {%- endif %}
+    {%- if b.links %}
+    <ul class="block-links">
+      {%- for l in b.links %}
+      <li><a href="{{ l.url }}">{{ l.text }}</a></li>
+      {%- endfor %}
+    </ul>
+    {%- endif %}
+    {%- if b.more %}
+    <p class="block-more"><a href="{{ b.more.url }}">{{ b.more.text }}</a></p>
+    {%- endif %}
+  </section>
+  {%- endfor %}
+  {%- if hasBody %}
+  <section class="block block-white span-6 home-body">
+    <div class="page-content">
+      {{ content | safe }}
+    </div>
+  </section>
+  {%- endif %}
+</div>

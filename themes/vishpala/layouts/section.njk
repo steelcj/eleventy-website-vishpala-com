@@ -1,0 +1,62 @@
+---
+layout: layouts/base.njk
+hero: true
+mainClass: site-main--page
+---
+{%- set t = theme.strings[lang] or theme.strings.en -%}
+{%- macro entryList(items, headingLevel) %}
+<ul class="entry-list">
+  {%- for e in items %}
+  {%- set href = e.data.externalUrl or e.url %}
+  <li>
+    <h{{ headingLevel }} class="entry-title">
+      <a href="{{ href }}"{% if e.data.externalUrl %} rel="noopener"{% endif %}>{{ e.data.heading or e.data.title }}</a>
+      {%- if e.data.externalUrl %} <span class="entry-external">({{ t.externalSite }})</span>{% endif %}
+    </h{{ headingLevel }}>
+    {%- if e.data.description %}
+    <p class="entry-description">{{ e.data.description }}</p>
+    {%- endif %}
+  </li>
+  {%- endfor %}
+</ul>
+{%- endmacro %}
+<div class="page-content">
+  {{ content | safe }}
+</div>
+
+{#- listCategory: list the resource entries in this folder (set by the folder's data file) -#}
+{%- if listCategory %}
+{%- set entries = collections.all | byLang(lang) | whereData("resourceEntry", true) | whereData("category", listCategory) | sort(false, false, "data.order") %}
+{%- if entries.length %}{{ entryList(entries, 2) }}{% endif %}
+{%- endif %}
+
+{#- listTag: list the pages carrying a tag, optionally grouped by listCategories -#}
+{%- if listTag and collections[listTag] %}
+{%- set entries = collections[listTag] | byLang(lang) | sort(false, false, "data.order") %}
+{%- if listCategories and listCategories.length %}
+{%- for cat in listCategories %}
+{%- set group = [] %}
+{%- for e in entries %}{% if e.data.category == cat.key %}{% set group = (group.push(e), group) %}{% endif %}{% endfor %}
+{%- if group.length %}
+<section class="entry-group" aria-labelledby="group-{{ cat.key }}">
+  <h2 id="group-{{ cat.key }}" class="entry-group-title">{{ cat.title }}</h2>
+  {%- if cat.text %}<p class="entry-group-text">{{ cat.text }}</p>{% endif %}
+  {{ entryList(group, 3) }}
+</section>
+{%- endif %}
+{%- endfor %}
+{%- elif entries.length %}
+{{ entryList(entries, 2) }}
+{%- endif %}
+{%- endif %}
+
+{%- if related and related.length %}
+<aside class="page-related" data-pagefind-ignore aria-labelledby="related-heading">
+  <h2 id="related-heading">{{ t.related }}</h2>
+  <ul>
+    {%- for r in related %}
+    <li><a href="{{ r.url }}">{{ r.text }}</a></li>
+    {%- endfor %}
+  </ul>
+</aside>
+{%- endif %}

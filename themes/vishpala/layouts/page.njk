@@ -1,0 +1,30 @@
+---
+layout: layouts/base.njk
+mainClass: site-main--page
+---
+{%- set t = theme.strings[lang] or theme.strings.en -%}
+<article>
+  <header class="page-header">
+    {%- set trail = collections.all | byLang(lang) | breadcrumbs(page.url) %}
+    {% breadcrumbNav trail, t.breadcrumb %}
+    <h1>{{ heading or title }}</h1>
+    {%- if subtitle %}
+    <p class="page-subtitle">{{ subtitle }}</p>
+    {%- endif %}
+  </header>
+
+  <div class="page-content">
+    {{ content | safe }}
+  </div>
+
+  {%- if related and related.length %}
+  <aside class="page-related" data-pagefind-ignore aria-labelledby="related-heading">
+    <h2 id="related-heading">{{ t.related }}</h2>
+    <ul>
+      {%- for r in related %}
+      <li><a href="{{ r.url }}">{{ r.text }}</a></li>
+      {%- endfor %}
+    </ul>
+  </aside>
+  {%- endif %}
+</article>

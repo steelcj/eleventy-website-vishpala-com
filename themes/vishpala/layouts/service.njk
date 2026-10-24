@@ -1,0 +1,17 @@
+---
+layout: layouts/page.njk
+---
+{{ content | safe }}
+{%- set services = collections.service | byLang(lang) | sort(false, false, "data.eleventyNavigation.order") %}
+{%- if services.length > 1 %}
+<aside class="page-related" data-pagefind-ignore aria-labelledby="other-services">
+  <h2 id="other-services">{{ (theme.strings[lang] or theme.strings.en).otherServices }}</h2>
+  <ul>
+    {%- for s in services %}
+    {%- if s.url != page.url %}
+    <li><a href="{{ s.url }}">{{ s.data.title }}</a></li>
+    {%- endif %}
+    {%- endfor %}
+  </ul>
+</aside>
+{%- endif %}

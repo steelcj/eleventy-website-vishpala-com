@@ -1,0 +1,20 @@
+{
+  "name": "vishpala-site",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Vishpala website, built with Eleventy",
+  "type": "module",
+  "scripts": {
+    "start": "npm run build && eleventy --serve",
+    "build": "eleventy && pagefind --site _site",
+    "clean": "node -e \"import('node:fs').then(fs => fs.rmSync('_site', { recursive: true, force: true }))\""
+  },
+  "engines": {
+    "node": ">=18"
+  },
+  "devDependencies": {
+    "@11ty/eleventy": "^3.1.7",
+    "@11ty/eleventy-navigation": "^1.0.5",
+    "pagefind": "^1.5.2"
+  }
+}

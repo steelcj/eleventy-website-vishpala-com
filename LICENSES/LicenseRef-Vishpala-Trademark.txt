@@ -1,0 +1,3 @@
+The Vishpala name, logos and wordmarks, including vishpala-mark.svg, are trademarks and copyright of Vishpala. All rights reserved.
+
+They are not covered by the MIT License or the Creative Commons Attribution 4.0 International License that apply to the rest of this repository. You may not use them except to refer to Vishpala and its work, without written permission from Vishpala.

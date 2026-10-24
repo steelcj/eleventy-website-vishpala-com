@@ -1,0 +1,164 @@
+{%- set t = theme.strings[lang] or theme.strings.en -%}
+{%- set translations = collections.all | translationsOf(translationKey, lang) -%}
+{%- set colour = page.url | sectionColour -%}
+{%- set homeUrl = "/" + lang + "/" -%}
+{%- set trail = collections.all | byLang(lang) | breadcrumbs(page.url) -%}
+<!doctype html>
+<html lang="{{ lang or 'en' }}">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>{% if page.url == homeUrl %}{{ site.name }}{% else %}{{ title }} | {{ site.name }}{% endif %}</title>
+  <meta name="description" content="{{ description or site.description }}">
+  <link rel="canonical" href="{{ site.url }}{{ page.url }}">
+  {%- for tr in translations %}
+  <link rel="alternate" hreflang="{{ tr.data.lang }}" href="{{ site.url }}{{ tr.url }}">
+  {%- endfor %}
+  {%- if translations.length %}
+  <link rel="alternate" hreflang="{{ lang }}" href="{{ site.url }}{{ page.url }}">
+  {%- endif %}
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="{{ site.name }}">
+  <meta property="og:title" content="{{ title }}">
+  <meta property="og:description" content="{{ description or site.description }}">
+  <meta property="og:url" content="{{ site.url }}{{ page.url }}">
+  <meta property="og:locale" content="{{ lang }}">
+  <meta name="twitter:card" content="summary">
+  <link rel="icon" href="/theme/img/vishpala-mark.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="/theme/css/theme.css">
+  {% breadcrumbJsonLd trail, site.url %}
+  <script>
+    /* Apply the font preference before render to prevent a flash */
+    try { if (localStorage.getItem('vishpala-font') === 'atkinson') { document.documentElement.setAttribute('data-font', 'atkinson'); } } catch (e) {}
+  </script>
+</head>
+<body>
+  <a class="skip-link" href="#main-content">{{ t.skip }}</a>
+
+  <div class="site-wrapper{% if hero %} site-wrapper--hero{% endif %}">
+
+    <header class="site-header">
+
+      <a class="site-title-lockup" href="{{ homeUrl }}">
+        <img src="/theme/img/vishpala-mark.svg" alt="" aria-hidden="true" class="site-logo" width="44" height="44">
+        <span class="site-title">{{ site.name }}</span>
+      </a>
+
+      <div class="site-header-controls">
+        {%- if translations.length %}
+        <div class="lang-switcher">
+          <button class="lang-switcher-trigger" aria-haspopup="true" aria-expanded="false" aria-label="{{ t.languages }}">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false">
+              <circle cx="12" cy="12" r="10"/>
+              <line x1="2" y1="12" x2="22" y2="12"/>
+              <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/>
+            </svg>
+          </button>
+          <ul class="lang-switcher-panel">
+            {%- for tr in translations %}
+            <li><a href="{{ tr.url }}" hreflang="{{ tr.data.lang }}" lang="{{ tr.data.lang }}">{{ theme.languageLabels[tr.data.lang] or tr.data.lang }}</a></li>
+            {%- endfor %}
+          </ul>
+        </div>
+        {%- endif %}
+        <div class="font-switcher">
+          <button class="font-toggle" id="font-toggle" aria-haspopup="true" aria-expanded="false" aria-label="{{ t.changeFont }}">
+            <span aria-hidden="true">Aa</span>
+          </button>
+          <ul class="font-switcher-panel">
+            <li><button class="option-system" data-font-choice="system" aria-pressed="true">{{ t.systemFont }}</button></li>
+            <li><button class="option-atkinson" data-font-choice="atkinson" aria-pressed="false">Atkinson Hyperlegible</button></li>
+          </ul>
+        </div>
+        {%- if theme.search %}
+        <button class="search-trigger" id="search-trigger" aria-label="{{ t.search }}" aria-expanded="false" aria-controls="search-modal">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <circle cx="11" cy="11" r="8"/>
+            <line x1="21" y1="21" x2="16.65" y2="16.65"/>
+          </svg>
+        </button>
+        {%- endif %}
+      </div>
+
+      <button class="menu-toggle" id="nav-toggle" aria-expanded="false" aria-controls="site-nav">
+        <svg width="13" height="12" viewBox="0 0 13 12" fill="none" aria-hidden="true" focusable="false">
+          <line y1="1" x2="13" y2="1" stroke="currentColor" stroke-width="2"/>
+          <line y1="6" x2="13" y2="6" stroke="currentColor" stroke-width="2"/>
+          <line y1="11" x2="13" y2="11" stroke="currentColor" stroke-width="2"/>
+        </svg>
+        {{ t.menu }}
+      </button>
+
+      <nav class="site-nav" id="site-nav" aria-label="{{ t.mainNav }}">
+        <ul>
+          {%- for entry in collections.all | byLang(lang) | eleventyNavigation %}
+          <li><a href="{{ entry.url }}"{% if entry.url == page.url %} aria-current="page"{% elif entry.url != homeUrl and page.url.startsWith(entry.url) %} aria-current="true"{% endif %}>{{ entry.title }}</a></li>
+          {%- endfor %}
+        </ul>
+      </nav>
+
+    </header>
+
+    {%- if hero %}
+    <div class="section-hero-row">
+      <div class="block block-{{ colour }} section-hero-main">
+        {% breadcrumbNav trail, t.breadcrumb %}
+        <h1>{{ heading or title }}</h1>
+        {%- if subtitle %}
+        <p>{{ subtitle }}</p>
+        {%- endif %}
+      </div>
+      <div class="block block-{{ colour | logoColour }} section-hero-logo" aria-hidden="true">
+        <img src="/theme/img/vishpala-mark.svg" alt="" width="120" height="120">
+      </div>
+    </div>
+    {%- endif %}
+
+    <main id="main-content" class="site-main{% if mainClass %} {{ mainClass }}{% endif %}" data-pagefind-body>
+      {{ content | safe }}
+    </main>
+
+    <footer class="site-footer">
+      <p>© {{ "now" | year }} {{ site.name }}</p>
+      {%- set footerLinks = site.footerLinks[lang] if site.footerLinks else [] %}
+      {%- if footerLinks.length %}
+      <nav class="footer-nav" aria-label="{{ t.footerNav }}">
+        <ul>
+          {%- for l in footerLinks %}
+          <li><a href="{{ l.url }}"{% if l.url == page.url %} aria-current="page"{% endif %}>{{ l.text }}</a></li>
+          {%- endfor %}
+        </ul>
+      </nav>
+      {%- endif %}
+      <p><a href="{{ theme.licence.url }}" rel="license">{{ theme.licence.label }}</a></p>
+    </footer>
+
+  </div>
+
+  {%- if theme.search %}
+  <div id="search-modal" class="search-modal" role="dialog" aria-modal="true" aria-label="{{ t.search }}" hidden>
+    <div class="search-modal-inner">
+      <div class="search-bar">
+        <label for="search-input" class="sr-only">{{ t.search }}</label>
+        <svg class="search-bar-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <circle cx="11" cy="11" r="8"/>
+          <line x1="21" y1="21" x2="16.65" y2="16.65"/>
+        </svg>
+        <input id="search-input" type="search" autocomplete="off" spellcheck="false" placeholder="{{ t.searchPlaceholder }}">
+        <button id="search-close" class="search-close" aria-label="{{ t.close }}">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" aria-hidden="true">
+            <line x1="18" y1="6" x2="6" y2="18"/>
+            <line x1="6" y1="6" x2="18" y2="18"/>
+          </svg>
+        </button>
+      </div>
+      <p id="search-status" class="search-status" role="status" aria-live="polite"></p>
+      <ul id="search-results" class="search-results"></ul>
+    </div>
+  </div>
+  <div id="search-backdrop" class="search-backdrop" hidden></div>
+  <script src="/theme/js/search.js" defer></script>
+  {%- endif %}
+  <script src="/theme/js/theme.js" defer></script>
+</body>
+</html>
