@@ -1,7 +1,7 @@
 format: 1
 repository: eleventy-website-vishpala-com
 layout: eleventy-site
-automa_version: 0.1.0
+automa_version: 0.2.0
 language: en-ca
 subscribe:
 - license-mit
