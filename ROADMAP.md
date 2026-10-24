@@ -4,6 +4,8 @@ Completed items move to [CHANGELOG.md](CHANGELOG.md).
 
 ## Next release
 
+The following metrics where take against https://vishpala.netlify.app/en-ca/ (hugo-website-vishpala) and not eleventy-website-vishpala-com. That said we want to resolve any issues that are still present in eleventy-website-vishpala-com.
+
 ### Web Metrics
 
 #### Accessibility
