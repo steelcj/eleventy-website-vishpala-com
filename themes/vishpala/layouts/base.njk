@@ -4,7 +4,7 @@
 {%- set homeUrl = "/" + lang + "/" -%}
 {%- set trail = collections.all | byLang(lang) | breadcrumbs(page.url) -%}
 <!doctype html>
-<html lang="{{ lang or 'en' }}">
+<html lang="{{ lang or 'en' }}" dir="{{ lang | textDir }}">
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -53,7 +53,7 @@
           </button>
           <ul class="lang-switcher-panel">
             {%- for tr in translations %}
-            <li><a href="{{ tr.url }}" hreflang="{{ tr.data.lang }}" lang="{{ tr.data.lang }}">{{ theme.languageLabels[tr.data.lang] or tr.data.lang }}</a></li>
+            <li><a href="{{ tr.url }}" hreflang="{{ tr.data.lang }}" lang="{{ tr.data.lang }}" dir="{{ tr.data.lang | textDir }}">{{ theme.languageLabels[tr.data.lang] or tr.data.lang }}</a></li>
             {%- endfor %}
           </ul>
         </div>
