@@ -9,7 +9,7 @@ All notable changes are recorded here, in the form of [Keep a Changelog](https:/
 - `netlify.toml`: the Netlify build settings, a redirect from `/` to `/en/`, and security headers on every response: a Content Security Policy allowing only the site's own resources, HSTS, `X-Content-Type-Options`, `Referrer-Policy`, `Permissions-Policy` and `Cross-Origin-Opener-Policy`. MDN Observatory rates the Netlify deploy A+ (score 130, 12 of 12 tests passed); the Hugo mockup failed its Content Security Policy test.
 - The fallback root page has a first-level heading. WAVE found none on the Hugo mockup's home page; this site's English home page already had one, visually hidden.
 - The site's own web-metrics results, recorded in `site.json` under `metrics`: Lighthouse 100 for accessibility, performance and SEO on mobile and desktop, Website Carbon A+, HTTP Observatory A+ and SSL Server Test A+, all tested 2026-10-24 on the Netlify deploy. The Web metrics page lists every result and each quality's page lists its own, each with a link that runs the test again, so visitors can check for themselves.
-- The Vishpala theme draws the seven web-metric qualities as marks in the style of Japanese family crests (kamon), in `img/kamon.svg`. With `metrics.footer` on, a row of them in every page's footer links to the results. It is off until the site moves to its production server, where Netlify's added script no longer affects the results.
+- The Vishpala theme draws the seven web-metric qualities as marks in the style of Japanese family crests (kamon), in `img/kamon.svg`. With `metrics.footer` on, as it is for this site, a row of them in every page's footer links to the results.
 
 ### Changed
 

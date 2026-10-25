@@ -15,7 +15,7 @@
     ]
   },
   "metrics": {
-    "footer": false,
+    "footer": true,
     "page": {
       "en": "/en/services/resources/web-metrics/"
     },
