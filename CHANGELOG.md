@@ -15,6 +15,7 @@ All notable changes are recorded here, in the form of [Keep a Changelog](https:/
 - `.uc-automa.yaml` pins uc-automa 0.2.0, the first release with the `eleventy-site` layout; it pinned 0.1.0, which has no such layout.
 - The script that applies the font preference before render is a file, `/theme/js/font-preference.js`, instead of inline, so the Content Security Policy allows it without a hash.
 - Header buttons, the mobile Menu button, mobile menu items and language menu items are at least 44 by 44 pixels (WCAG 2.5.5); they were 27 to 32 pixels tall.
+- `site.json` gives the site's address as `https://eleventy-website-vishpala.netlify.app`, the test deploy, until the site moves to its production server; it was the placeholder `https://example.com`. Canonical links, `hreflang` and social tags, the sitemap, `robots.txt` and the breadcrumb data use it.
 
 ### Fixed
 
