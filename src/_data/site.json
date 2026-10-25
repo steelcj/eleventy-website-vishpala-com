@@ -32,6 +32,15 @@
         "tested": "2026-10-24"
       },
       {
+        "quality": "accessibility",
+        "tool": "wave",
+        "result": {
+          "en": "No errors and no contrast errors, AIM score 10 out of 10",
+          "fr": "Aucune erreur ni aucune erreur de contraste, score AIM de 10 sur 10"
+        },
+        "tested": "2026-10-24"
+      },
+      {
         "quality": "performance",
         "tool": "lighthouse",
         "result": {
