@@ -28,4 +28,4 @@ blocks:
     text: "Des outils et des références pour des sites web accessibles et indépendants."
 ---
 
-Le reste du site n’est offert qu’en anglais pour l’instant : <a href="/en/solutions/" hreflang="en">Solutions</a>, <a href="/en/who-we-serve/" hreflang="en">Who we serve</a> (notre clientèle) et <a href="/en/about/" hreflang="en">About</a> (à propos).
+Le reste du site n’est offert qu’en anglais pour l’instant : <a href="/en/solutions/" hreflang="en" lang="en">Solutions</a>, <a href="/en/who-we-serve/" hreflang="en" lang="en">Who we serve</a> (notre clientèle) et <a href="/en/about/" hreflang="en" lang="en">About</a> (à propos).

@@ -12,6 +12,7 @@ All notable changes are recorded here, in the form of [Keep a Changelog](https:/
 - The Vishpala theme draws each web-metric quality as a mark in the style of Japanese family crests (kamon), in `img/kamon.svg`: the qualities of the Universal Cake Evaluation Metrics, plus portability, a way out. With `metrics.footer` on, as it is for this site, a row of them in every page's footer links to the results. The row wraps to fit any screen width and any number of marks.
 - French pages, in Canadian French under `/fr/`: the home page, Services and Resources, so the logo, menu and breadcrumbs work in French, and the Web metrics page with a page and tool entries for each quality. The rest of the site is English only for now, and French pages say so where they link to it. The metrics results carry French text, and the Vishpala theme puts a space before a colon in French.
 - The Vishpala theme supports right-to-left languages. Each page's `<html>` carries the text direction of its language, and the styles use start and end instead of left and right, so a page in Arabic or Hebrew lays out as a mirror image.
+- Spanish pages, in neutral Latin American Spanish under `/es/`, matching the French ones: the home page, Services and Resources, and the Measuring our work page with a page and tool entries for each quality. The metrics results carry Spanish text, and the Vishpala theme has Spanish interface text. On French and Spanish pages, links whose text is an English page name are marked as English, so screen readers pronounce them correctly.
 
 ### Changed
 

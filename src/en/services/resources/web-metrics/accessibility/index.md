@@ -16,4 +16,4 @@ metricResults: "accessibility"
 
 A website is accessible when people can use it whatever their abilities: with a screen reader, a keyboard, magnification, or no mouse at all. Accessibility also helps everyone else, from older visitors to people on a small screen in bright sunlight.
 
-WAVE recognizes a skip link, the link that lets keyboard and screen reader users jump past the menu, only when its text starts with the English word "skip" or "jump". It does not list the "<span lang="fr">Aller au contenu</span>" link on this site's French pages, which works the same way as the English one.
+WAVE recognizes a skip link, the link that lets keyboard and screen reader users jump past the menu, only when its text starts with the English word "skip" or "jump". It does not list the "<span lang="fr">Aller au contenu</span>" and "<span lang="es">Saltar al contenido</span>" links on this site's French and Spanish pages, which work the same way as the English one.

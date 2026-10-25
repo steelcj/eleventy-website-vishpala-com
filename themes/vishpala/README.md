@@ -62,7 +62,7 @@ An optional `metrics` object records the site's own results from web-metrics tes
 | `licence` | CC BY 4.0 | Footer licence link |
 | `search` | `true` | Show the search button and modal (needs Pagefind in the build) |
 | `sitemap` | `true` | Generate `sitemap.xml` and `robots.txt` |
-| `strings` | English and French | Interface text per language, merged over the defaults |
+| `strings` | English, French and Spanish | Interface text per language, merged over the defaults |
 
 ## Layouts
 

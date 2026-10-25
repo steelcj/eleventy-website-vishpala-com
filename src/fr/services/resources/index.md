@@ -15,4 +15,4 @@ eleventyNavigation:
   order: 7
 ---
 
-Certaines de ces ressources sont des guides que nous avons rédigés nous-mêmes; d’autres sont des outils et des références d’autres organisations, que nous utilisons dans notre propre travail. Nos guides ne sont offerts qu’en anglais pour l’instant : <a href="/en/services/resources/guides/" hreflang="en">Guides</a>.
+Certaines de ces ressources sont des guides que nous avons rédigés nous-mêmes; d’autres sont des outils et des références d’autres organisations, que nous utilisons dans notre propre travail. Nos guides ne sont offerts qu’en anglais pour l’instant : <a href="/en/services/resources/guides/" hreflang="en" lang="en">Guides</a>.

@@ -16,4 +16,4 @@ metricResults: "accessibility"
 
 Un site web est accessible quand chacun peut l’utiliser, quelles que soient ses capacités : avec un lecteur d’écran, un clavier, un agrandisseur ou sans souris. L’accessibilité profite aussi à tout le monde, des personnes âgées à celles qui consultent un petit écran en plein soleil.
 
-WAVE ne reconnaît un lien d’évitement, celui qui permet aux personnes utilisant un clavier ou un lecteur d’écran de passer le menu, que si son texte commence par le mot anglais « <span lang="en">skip</span> » ou « <span lang="en">jump</span> ». Il ne signale donc pas le lien « Aller au contenu » des pages françaises de ce site, qui fonctionne pourtant comme le lien anglais.
+WAVE ne reconnaît un lien d’évitement, celui qui permet aux personnes utilisant un clavier ou un lecteur d’écran de passer le menu, que si son texte commence par le mot anglais « <span lang="en">skip</span> » ou « <span lang="en">jump</span> ». Il ne signale donc pas les liens « Aller au contenu » et « <span lang="es">Saltar al contenido</span> » des pages françaises et espagnoles de ce site, qui fonctionnent pourtant comme le lien anglais.
