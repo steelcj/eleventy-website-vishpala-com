@@ -11,6 +11,7 @@ tags: [dimension]
 order: 1
 resourceEntry: false
 listCategory: "accessibility"
+metricResults: "accessibility"
 ---
 
 A website is accessible when people can use it whatever their abilities: with a screen reader, a keyboard, magnification, or no mouse at all. Accessibility also helps everyone else, from older visitors to people on a small screen in bright sunlight.

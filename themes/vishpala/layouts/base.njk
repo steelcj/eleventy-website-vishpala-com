@@ -133,8 +133,19 @@
         </ul>
       </nav>
       {%- endif %}
-      {%- if site.carbon %}
-      <p class="carbon-badge"><a href="{{ site.carbon.url }}">{{ t.carbonRating }} <strong>{{ site.carbon.rating }}</strong></a> <span>{{ t.carbonPerVisit | replace("{g}", site.carbon.gramsBelow | localNumber(lang)) }},{% if site.carbon.cleanerThan %} {{ t.carbonCleaner | replace("{p}", site.carbon.cleanerThan | localNumber(lang)) }},{% endif %} {{ t.carbonTested }} <time datetime="{{ site.carbon.tested }}">{{ site.carbon.tested }}</time></span></p>
+      {%- if site.metrics and site.metrics.footer %}
+      {#- One kamon mark per quality with results, each linking to its results on the metrics page. #}
+      {%- set metricsPage = site.metrics.page[lang] or site.metrics.page.en %}
+      <nav class="metric-marks" aria-labelledby="metric-marks-title">
+        <p id="metric-marks-title"><a href="{{ metricsPage }}">{{ t.metricsTitle }}</a></p>
+        <ul>
+          {%- for q in theme.qualities %}
+          {%- if (site.metrics.results | metricResults(q)).length %}
+          <li><a href="{{ metricsPage }}#metric-{{ q }}"><svg class="kamon" width="40" height="40" aria-hidden="true" focusable="false"><use href="/theme/img/kamon.svg#kamon-{{ q }}"></use></svg><span>{{ t.qualities[q] }}</span></a></li>
+          {%- endif %}
+          {%- endfor %}
+        </ul>
+      </nav>
       {%- endif %}
       <p><a href="{{ theme.licence.url }}" rel="license">{{ theme.licence.label }}</a></p>
     </footer>

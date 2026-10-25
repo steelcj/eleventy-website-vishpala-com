@@ -11,6 +11,7 @@ permalink: /en/services/resources/web-metrics/
 tags: [resource-section]
 order: 2
 listTag: "dimension"
+metricResults: "all"
 ---
 
 <!-- NOTE: these dimensions are aligned with the Universal Cake Evaluation Metrics: inclusive design (accessibility), environment (sustainability), security (privacy and security), agency and longevity, plus performance and visibility. -->

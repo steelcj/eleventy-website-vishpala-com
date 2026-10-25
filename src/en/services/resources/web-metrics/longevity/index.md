@@ -11,6 +11,7 @@ tags: [dimension]
 order: 7
 resourceEntry: false
 listCategory: "longevity"
+metricResults: "longevity"
 ---
 
 Websites built on open web standards keep working as browsers change, and are easier to move, archive and maintain. Standards-based pages also tend to be more accessible.

@@ -24,6 +24,33 @@ mainClass: site-main--page
   {{ content | safe }}
 </div>
 
+{#- metricResults: this site's web-metrics results, for every quality ("all") or for one -#}
+{%- if metricResults and site.metrics %}
+{%- set testedUrl = site.url + (site.metrics.tested or "/") %}
+<section class="metric-results" aria-labelledby="metric-results-title">
+  <h2 id="metric-results-title">{{ t.metricsTitle }}</h2>
+  <p>{{ t.metricsIntro }}</p>
+  <ul class="metric-list">
+    {%- for q in theme.qualities %}
+    {%- set results = site.metrics.results | metricResults(q) %}
+    {%- if results.length and (metricResults == "all" or metricResults == q) %}
+    <li id="metric-{{ q }}">
+      <svg class="kamon" width="64" height="64" aria-hidden="true" focusable="false"><use href="/theme/img/kamon.svg#kamon-{{ q }}"></use></svg>
+      <div>
+        <h3>{{ t.qualities[q] }}</h3>
+        {%- for r in results %}
+        {%- set tool = theme.metricTools[r.tool] %}
+        <p><strong>{{ tool.name if tool else t.metricsSelfAssessed }}</strong>, {{ t.metricsTested }} <time datetime="{{ r.tested }}">{{ r.tested }}</time>: {{ r.result | inLang(lang) }}.
+          {%- if tool %} <a href="{{ r.tool | metricTestUrl(testedUrl) }}">{{ t.metricsTestYourself | replace("{tool}", tool.runner or tool.name) }}</a>{% endif %}</p>
+        {%- endfor %}
+      </div>
+    </li>
+    {%- endif %}
+    {%- endfor %}
+  </ul>
+</section>
+{%- endif %}
+
 {#- listCategory: list the resource entries in this folder (set by the folder's data file) -#}
 {%- if listCategory %}
 {%- set entries = collections.all | byLang(lang) | whereData("resourceEntry", true) | whereData("category", listCategory) | sort(false, false, "data.order") %}

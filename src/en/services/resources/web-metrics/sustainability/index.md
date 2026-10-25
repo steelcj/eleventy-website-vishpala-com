@@ -11,6 +11,7 @@ tags: [dimension]
 order: 4
 resourceEntry: false
 listCategory: "sustainability"
+metricResults: "sustainability"
 ---
 
 Every page view uses energy, in data centres, networks and visitors' devices. Lighter pages use less, and they are usually faster too.

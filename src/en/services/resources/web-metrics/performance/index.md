@@ -11,6 +11,7 @@ tags: [dimension]
 order: 2
 resourceEntry: false
 listCategory: "performance"
+metricResults: "performance"
 ---
 
 Fast pages matter most to the people with the slowest connections and oldest devices. Performance tools measure how quickly a page appears and becomes usable, and point to what slows it down.

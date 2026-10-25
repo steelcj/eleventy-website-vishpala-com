@@ -22,17 +22,30 @@ Set the input directory before adding the plugin, so the theme knows where your 
 "footerLinks": { "en": [ { "text": "Contact", "url": "/en/contact/" } ] }
 ```
 
-An optional `carbon` object shows a Website Carbon result in the footer as plain text, with no remote script or image. Copy the figures from the site's result page after each test. `cleanerThan` is the percentage of web pages the site beats, and can be left out:
+An optional `metrics` object records the site's own results from web-metrics testing tools, for the seven qualities of the Universal Cake Evaluation Metrics: accessibility, performance, visibility, sustainability, privacy and security, agency and longevity. Each quality has a mark in the style of a Japanese family crest (kamon):
 
 ```json
-"carbon": { "rating": "A+", "gramsBelow": 0.01, "cleanerThan": 99, "tested": "2026-10-24", "url": "https://www.websitecarbon.com/website/..." }
+"metrics": {
+  "footer": false,
+  "page": { "en": "/en/services/resources/web-metrics/" },
+  "tested": "/en/",
+  "results": [
+    { "quality": "privacy-security", "tool": "observatory", "result": "A+, score 130, 12 of 12 tests passed", "tested": "2026-10-24" },
+    { "quality": "agency", "result": "No tracking, advertising, cookies, pop-ups or deceptive patterns", "tested": "2026-10-24" }
+  ]
+}
 ```
+
+- `results` lists one entry per tool and quality. `tool` is one of `lighthouse`, `observatory`, `ssllabs`, `websitecarbon`, `w3c` or `wave`; an entry without one is shown as the site's own review, with no test link. `result` is plain text, or an object keyed by language (`{ "en": "...", "fr": "..." }`).
+- `tested` is the path of the page the tools tested. With `site.url`, it builds each tool's "Test it yourself" link, so the links follow the site to its production address.
+- `page` is the page, per language, that shows every result (front matter `metricResults: "all"`). A section page with `metricResults` set to one quality shows that quality's results.
+- `footer: true` adds a row of the marks to every page's footer, each linking to its quality's results on `page`.
 
 ## What the theme provides
 
 - **Layouts:** `layouts/base.njk`, `layouts/home.njk`, `layouts/section.njk`, `layouts/page.njk`, `layouts/service.njk`
-- **Assets** served from `/theme/`: the stylesheet, Atkinson Hyperlegible fonts, the Vishpala mark, the theme script and the search script
-- **Filters:** `byLang`, `translationsOf`, `whereData`, `breadcrumbs`, `sectionOf`, `sectionColour`, `logoColour`, `year`, `localNumber`
+- **Assets** served from `/theme/`: the stylesheet, Atkinson Hyperlegible fonts, the Vishpala mark, the seven kamon marks (`img/kamon.svg`), the theme script and the search script
+- **Filters:** `byLang`, `translationsOf`, `whereData`, `breadcrumbs`, `sectionOf`, `sectionColour`, `logoColour`, `year`, `inLang`, `metricResults`, `metricTestUrl`
 - **Shortcodes:** `breadcrumbNav` (accessible breadcrumb navigation) and `breadcrumbJsonLd` (schema.org `BreadcrumbList`)
 - **SEO files:** `/sitemap.xml` with `hreflang` alternates, and `/robots.txt`
 - The `@11ty/eleventy-navigation` plugin, used for menus and "Back to" links
@@ -54,7 +67,7 @@ An optional `carbon` object shows a Website Carbon result in the footer as plain
 
 **home.njk** builds the block grid from a `blocks` list in front matter, like the original four-block Hugo homepage. Each block takes `title`, an optional `url` that turns the title into a link to its section, a short `text` tagline, `colour` (red, blue, yellow or white), `span` (2, 3, 4 or 6 of the six columns), an optional `featured` link and an optional `more` link (each with `text` and `url`), and an `id`. A `links` list is also supported for blocks that need several links. The page `heading` becomes a visually hidden `h1` for screen readers and search engines. Blocks are sized by their content, as in the original Mondrian-style grid, so rows can differ in height. Any Markdown body appears as a full-width white block after the grid.
 
-**section.njk** is for section landing pages. It shows `heading` (or `title`) and `subtitle` in a coloured hero block beside the logo. With `listTag` set, it also lists every page in the same language carrying that tag, sorted by their `order` field. A listed entry with an `externalUrl` links to that address and is marked as an external site, so entries can be links out without a page of their own (`permalink: false`). Alternatively, `listCategory` lists the entries in a folder: pages with `resourceEntry: true` and a matching `category`, both normally set by the folder's directory data file. Add a `listCategories` list (each item a `key`, `title` and optional `text`) to group entries under headings, matched on each entry's `category`; categories are shown in the order listed, and empty ones are skipped.
+**section.njk** is for section landing pages. It shows `heading` (or `title`) and `subtitle` in a coloured hero block beside the logo. With `listTag` set, it also lists every page in the same language carrying that tag, sorted by their `order` field. A listed entry with an `externalUrl` links to that address and is marked as an external site, so entries can be links out without a page of their own (`permalink: false`). Alternatively, `listCategory` lists the entries in a folder: pages with `resourceEntry: true` and a matching `category`, both normally set by the folder's directory data file. Add a `listCategories` list (each item a `key`, `title` and optional `text`) to group entries under headings, matched on each entry's `category`; categories are shown in the order listed, and empty ones are skipped. `metricResults` shows the site's web-metrics results after the page content, for `"all"` qualities or for one, such as `"performance"`.
 
 **page.njk** is for ordinary pages, with breadcrumbs, the `heading` and `subtitle`, and an optional `related` list.
 
@@ -66,7 +79,7 @@ To change a layout for one site, copy it from `themes/vishpala/layouts/` into th
 
 ## Credits
 
-Atkinson Hyperlegible was designed by the Braille Institute and is distributed under the SIL Open Font License 1.1. Search is provided by [Pagefind](https://pagefind.app/).
+Atkinson Hyperlegible was designed by the Braille Institute and is distributed under the SIL Open Font License 1.1. Search is provided by [Pagefind](https://pagefind.app/). The kamon marks were drawn for this theme.
 
 ## Breadcrumbs
 

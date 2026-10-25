@@ -1138,16 +1138,63 @@ pre code { background: none; padding: 0; font-size: var(--fs-meta); }
 }
 .footer-nav a:hover { color: var(--black); }
 
-/* Website Carbon result, written as text: no remote script or image */
-.site-footer .carbon-badge {
-  display: inline-flex;
-  flex-wrap: wrap;
-  align-items: center;
-  gap: 0 var(--space-sm);
-  border: 2px solid var(--black);
-  padding: var(--space-xs) var(--space-sm);
+/* ─── Web metrics: kamon marks and results ───────────────────────────────── */
+
+.kamon { display: block; flex: none; color: var(--black); }
+
+/* Footer row: a full-width line of marks above the rest of the footer, four to a row on phones.
+   align-content keeps the footer's lines together when the homepage footer is taller than its content. */
+.site-footer:has(.metric-marks) { align-content: center; }
+.site-footer .metric-marks { flex-basis: 100%; order: -1; }
+.metric-marks p { margin: 0 0 var(--space-sm); }
+.metric-marks ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  grid-template-columns: repeat(7, minmax(0, 6.5rem));
+  gap: var(--space-sm);
 }
-.carbon-badge strong { color: var(--black); }
+.site-footer .metric-marks ul a {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--space-xs);
+  min-height: var(--target);
+  padding: var(--space-xs) 0;
+  font-family: system-ui, sans-serif;
+  font-size: var(--fs-meta);
+  line-height: 1.25;
+  text-align: center;
+  text-decoration: none;
+  color: var(--black);
+}
+.site-footer .metric-marks ul a:hover span { text-decoration: underline; }
+@media (max-width: 600px) {
+  .metric-marks ul { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+}
+
+/* Results on the metrics pages: one mark and its results per quality */
+.metric-results {
+  max-width: var(--measure);
+  margin: var(--space-lg) 0;
+  padding-top: var(--space-md);
+  border-top: 2px solid var(--black);
+}
+.metric-results h2 { font-size: var(--fs-h2); margin: 0 0 var(--space-sm); }
+.metric-list { list-style: none; margin: 0; padding: 0; }
+.metric-list li {
+  display: flex;
+  gap: var(--space-md);
+  align-items: flex-start;
+  padding: var(--space-md) 0;
+  border-bottom: 1px solid var(--colour-border);
+  scroll-margin-top: var(--space-md);
+}
+.metric-list li:last-child { border-bottom: none; }
+.metric-list h3 { font-size: var(--fs-h3); margin: 0 0 var(--space-xs); }
+.metric-list p { margin: 0 0 var(--space-xs); }
+.metric-list time { white-space: nowrap; }
 
 /* Grid rows follow the original: header, main, then the footer takes any space left on the homepage.
    Pages with a hero use header, main (filling the space), footer, and main holds the hero row above the content. */

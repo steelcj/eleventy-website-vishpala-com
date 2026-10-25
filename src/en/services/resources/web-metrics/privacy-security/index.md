@@ -11,6 +11,7 @@ tags: [dimension]
 order: 5
 resourceEntry: false
 listCategory: "privacy-security"
+metricResults: "privacy-security"
 ---
 
 Visitors trust you with their attention and often their data. These tools check that connections are encrypted, that security settings are in place, and what tracking a site carries.

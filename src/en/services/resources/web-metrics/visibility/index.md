@@ -11,6 +11,7 @@ tags: [dimension]
 order: 3
 resourceEntry: false
 listCategory: "visibility"
+metricResults: "visibility"
 ---
 
 Visibility is about being found by the people looking for what you offer. These tools show how search engines see your site. Some need a free account and proof that you own the site.

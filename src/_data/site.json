@@ -14,11 +14,60 @@
       }
     ]
   },
-  "carbon": {
-    "rating": "A+",
-    "gramsBelow": 0.01,
-    "cleanerThan": 99,
-    "tested": "2026-10-24",
-    "url": "https://www.websitecarbon.com/website/eleventy-website-vishpala-netlify-app-en/"
+  "metrics": {
+    "footer": false,
+    "page": {
+      "en": "/en/services/resources/web-metrics/"
+    },
+    "tested": "/en/",
+    "results": [
+      {
+        "quality": "accessibility",
+        "tool": "lighthouse",
+        "result": "Accessibility score 100 on mobile and desktop",
+        "tested": "2026-10-24"
+      },
+      {
+        "quality": "performance",
+        "tool": "lighthouse",
+        "result": "Performance score 100 on mobile and desktop, with 25 KiB per page",
+        "tested": "2026-10-24"
+      },
+      {
+        "quality": "visibility",
+        "tool": "lighthouse",
+        "result": "SEO score 100 on mobile and desktop",
+        "tested": "2026-10-24"
+      },
+      {
+        "quality": "sustainability",
+        "tool": "websitecarbon",
+        "result": "A+, cleaner than 99% of web pages, with less than 0.01 g of CO₂ per visit",
+        "tested": "2026-10-24"
+      },
+      {
+        "quality": "privacy-security",
+        "tool": "observatory",
+        "result": "A+, score 130, 12 of 12 tests passed",
+        "tested": "2026-10-24"
+      },
+      {
+        "quality": "privacy-security",
+        "tool": "ssllabs",
+        "result": "A+",
+        "tested": "2026-10-24"
+      },
+      {
+        "quality": "agency",
+        "result": "No tracking, advertising, cookies, pop-ups or deceptive patterns. The only thing the site remembers is the visitor's font choice, kept in their own browser, and its content is free to share and adapt under CC BY 4.0",
+        "tested": "2026-10-24"
+      },
+      {
+        "quality": "longevity",
+        "tool": "w3c",
+        "result": "No errors or warnings in the site's own HTML. On this Netlify test site, the checker stops at a script Netlify adds after the end of each page",
+        "tested": "2026-10-24"
+      }
+    ]
   }
 }

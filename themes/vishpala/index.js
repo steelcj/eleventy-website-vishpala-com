@@ -33,10 +33,20 @@ const DEFAULT_STRINGS = {
     footerNav: "Footer",
     externalSite: "external site",
     breadcrumb: "Breadcrumb",
-    carbonRating: "Website Carbon rating",
-    carbonPerVisit: "less than {g} g of CO₂ per visit",
-    carbonCleaner: "cleaner than {p}% of web pages",
-    carbonTested: "tested",
+    metricsTitle: "How this site measures up",
+    metricsIntro: "Results from independent testing tools. Run each test yourself to see what they say today.",
+    metricsTested: "tested",
+    metricsTestYourself: "Test it yourself with {tool}",
+    metricsSelfAssessed: "Our own review",
+    qualities: {
+      accessibility: "Accessibility",
+      performance: "Performance",
+      visibility: "Visibility",
+      sustainability: "Sustainability",
+      "privacy-security": "Privacy and security",
+      agency: "Agency",
+      longevity: "Longevity",
+    },
   },
   fr: {
     skip: "Aller au contenu",
@@ -54,11 +64,36 @@ const DEFAULT_STRINGS = {
     footerNav: "Pied de page",
     externalSite: "site externe",
     breadcrumb: "Fil d’Ariane",
-    carbonRating: "Note Website Carbon",
-    carbonPerVisit: "moins de {g} g de CO₂ par visite",
-    carbonCleaner: "plus propre que {p}\u202f% des pages web",
-    carbonTested: "mesurée le",
+    metricsTitle: "Ce site à l’épreuve",
+    metricsIntro: "Résultats d’outils de test indépendants. Lancez chaque test vous-même pour voir ce qu’ils disent aujourd’hui.",
+    metricsTested: "testé le",
+    metricsTestYourself: "Testez vous-même avec {tool}",
+    metricsSelfAssessed: "Notre propre examen",
+    qualities: {
+      accessibility: "Accessibilité",
+      performance: "Performance",
+      visibility: "Visibilité",
+      sustainability: "Durabilité",
+      "privacy-security": "Vie privée et sécurité",
+      agency: "Pouvoir d’agir",
+      longevity: "Longévité",
+    },
   },
+};
+
+// The seven web-metric qualities, in display order. Each has a mark in assets/img/kamon.svg.
+const QUALITIES = ["accessibility", "performance", "visibility", "sustainability", "privacy-security", "agency", "longevity"];
+
+// Testing tools a metrics result can name. In each test address, {url} is the tested page
+// (URL-encoded), {rawUrl} the same unencoded, {host} its host name, and {slug} the page's
+// address as Website Carbon writes it (eleventy-website-vishpala-netlify-app-en).
+const METRIC_TOOLS = {
+  lighthouse: { name: "Lighthouse", runner: "PageSpeed Insights", test: "https://pagespeed.web.dev/report?url={url}" },
+  observatory: { name: "HTTP Observatory", test: "https://developer.mozilla.org/en-US/observatory/analyze?host={host}" },
+  ssllabs: { name: "SSL Server Test", test: "https://www.ssllabs.com/ssltest/analyze.html?d={host}" },
+  websitecarbon: { name: "Website Carbon Calculator", test: "https://www.websitecarbon.com/website/{slug}/" },
+  w3c: { name: "W3C Markup Validation Service", test: "https://validator.w3.org/nu/?doc={url}" },
+  wave: { name: "WAVE", test: "https://wave.webaim.org/report#/{rawUrl}" },
 };
 
 const DEFAULTS = {
@@ -95,7 +130,7 @@ export default function vishpalaTheme(eleventyConfig, userOptions = {}) {
   }
 
   eleventyConfig.addPlugin(eleventyNavigationPlugin);
-  eleventyConfig.addGlobalData("theme", { ...options, strings });
+  eleventyConfig.addGlobalData("theme", { ...options, strings, qualities: QUALITIES, metricTools: METRIC_TOOLS });
 
   // Theme assets are served from /theme/.
   eleventyConfig.addPassthroughCopy({ [path.join(THEME_DIR, "assets")]: "theme" });
@@ -122,8 +157,29 @@ export default function vishpalaTheme(eleventyConfig, userOptions = {}) {
 
   eleventyConfig.addFilter("year", () => String(new Date().getFullYear()));
 
-  // A number written the way the page's language writes it: 0.01 in English, 0,01 in French.
-  eleventyConfig.addFilter("localNumber", (n, lang) => new Intl.NumberFormat(lang || "en").format(n));
+  // Text given per language ({ "en": "...", "fr": "..." }) in the page's language, else English.
+  // Plain strings are returned as they are.
+  eleventyConfig.addFilter("inLang", (value, lang) =>
+    value && typeof value === "object" ? value[lang] || value.en : value
+  );
+
+  // The metrics results recorded for one quality.
+  eleventyConfig.addFilter("metricResults", (results, quality) =>
+    (results || []).filter((r) => r.quality === quality)
+  );
+
+  // The address that runs a metrics tool on the tested page, from the tool's test template.
+  eleventyConfig.addFilter("metricTestUrl", (toolKey, pageUrl) => {
+    const tool = METRIC_TOOLS[toolKey];
+    if (!tool || !pageUrl) return "";
+    const u = new URL(pageUrl);
+    const slug = (u.host + u.pathname).toLowerCase().replace(/[^a-z0-9]+/g, "-").replace(/^-|-$/g, "");
+    return tool.test
+      .replace("{url}", encodeURIComponent(pageUrl))
+      .replace("{rawUrl}", pageUrl)
+      .replace("{host}", u.host)
+      .replace("{slug}", slug);
+  });
 
   // Pages whose data field equals a value, for example resource entries in one category.
   eleventyConfig.addFilter("whereData", (pages, key, value) =>
