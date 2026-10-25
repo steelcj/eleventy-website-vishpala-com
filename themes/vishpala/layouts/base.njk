@@ -97,23 +97,29 @@
     </header>
 
     {%- if hero %}
-    <div class="section-hero-row">
-      <div class="block block-{{ colour }} section-hero-main">
-        {% breadcrumbNav trail, t.breadcrumb %}
-        <h1>{{ heading or title }}</h1>
-        {%- if subtitle %}
-        <p>{{ subtitle }}</p>
-        {%- endif %}
+    {#- The hero is inside main, so the skip link lands on the page's h1. Search indexes only the content below it. #}
+    <main id="main-content" class="site-main site-main--hero">
+      <div class="section-hero-row">
+        <div class="block block-{{ colour }} section-hero-main">
+          {% breadcrumbNav trail, t.breadcrumb %}
+          <h1>{{ heading or title }}</h1>
+          {%- if subtitle %}
+          <p>{{ subtitle }}</p>
+          {%- endif %}
+        </div>
+        <div class="block block-{{ colour | logoColour }} section-hero-logo" aria-hidden="true">
+          <img src="/theme/img/vishpala-mark.svg" alt="" width="120" height="120">
+        </div>
       </div>
-      <div class="block block-{{ colour | logoColour }} section-hero-logo" aria-hidden="true">
-        <img src="/theme/img/vishpala-mark.svg" alt="" width="120" height="120">
+      <div class="{{ mainClass }}" data-pagefind-body>
+        {{ content | safe }}
       </div>
-    </div>
-    {%- endif %}
-
+    </main>
+    {%- else %}
     <main id="main-content" class="site-main{% if mainClass %} {{ mainClass }}{% endif %}" data-pagefind-body>
       {{ content | safe }}
     </main>
+    {%- endif %}
 
     <footer class="site-footer">
       <p>© {{ "now" | year }} {{ site.name }}</p>
