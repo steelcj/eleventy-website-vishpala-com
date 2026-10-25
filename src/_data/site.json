@@ -101,6 +101,14 @@
           "fr": "Aucune erreur ni aucun avertissement dans le HTML du site. Sur ce site de test hébergé par Netlify, le vérificateur s’arrête à un script que Netlify ajoute après la fin de chaque page"
         },
         "tested": "2026-10-24"
+      },
+      {
+        "quality": "portability",
+        "result": {
+          "en": "The site's content is kept in portable formats, plain Markdown text and standard SVG images, so it can be reused elsewhere or with other products",
+          "fr": "Le contenu du site est conservé dans des formats portables, du texte Markdown et des images SVG standard, et peut donc être réutilisé ailleurs ou avec d’autres produits"
+        },
+        "tested": "2026-10-25"
       }
     ]
   }

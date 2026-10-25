@@ -22,7 +22,7 @@ Set the input directory before adding the plugin, so the theme knows where your 
 "footerLinks": { "en": [ { "text": "Contact", "url": "/en/contact/" } ] }
 ```
 
-An optional `metrics` object records the site's own results from web-metrics testing tools, for the seven qualities of the Universal Cake Evaluation Metrics: accessibility, performance, visibility, sustainability, privacy and security, agency and longevity. Each quality has a mark in the style of a Japanese family crest (kamon):
+An optional `metrics` object records the site's own results from web-metrics testing tools, for qualities based on the Universal Cake Evaluation Metrics: accessibility, performance, visibility, sustainability, privacy and security, agency, longevity and portability. Each quality has a mark in the style of a Japanese family crest (kamon):
 
 ```json
 "metrics": {
@@ -44,7 +44,7 @@ An optional `metrics` object records the site's own results from web-metrics tes
 ## What the theme provides
 
 - **Layouts:** `layouts/base.njk`, `layouts/home.njk`, `layouts/section.njk`, `layouts/page.njk`, `layouts/service.njk`
-- **Assets** served from `/theme/`: the stylesheet, Atkinson Hyperlegible fonts, the Vishpala mark, the seven kamon marks (`img/kamon.svg`), the theme script and the search script
+- **Assets** served from `/theme/`: the stylesheet, Atkinson Hyperlegible fonts, the Vishpala mark, a kamon mark for each quality (`img/kamon.svg`), the theme script and the search script
 - **Filters:** `byLang`, `translationsOf`, `whereData`, `breadcrumbs`, `sectionOf`, `sectionColour`, `logoColour`, `year`, `inLang`, `metricResults`, `metricTestUrl`
 - **Shortcodes:** `breadcrumbNav` (accessible breadcrumb navigation) and `breadcrumbJsonLd` (schema.org `BreadcrumbList`)
 - **SEO files:** `/sitemap.xml` with `hreflang` alternates, and `/robots.txt`

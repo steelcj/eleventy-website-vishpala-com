@@ -47,6 +47,7 @@ const DEFAULT_STRINGS = {
       "privacy-security": "Privacy and security",
       agency: "Agency",
       longevity: "Longevity",
+      portability: "Portability",
     },
   },
   fr: {
@@ -79,12 +80,13 @@ const DEFAULT_STRINGS = {
       "privacy-security": "Vie privée et sécurité",
       agency: "Pouvoir d’agir",
       longevity: "Longévité",
+      portability: "Portabilité",
     },
   },
 };
 
-// The seven web-metric qualities, in display order. Each has a mark in assets/img/kamon.svg.
-const QUALITIES = ["accessibility", "performance", "visibility", "sustainability", "privacy-security", "agency", "longevity"];
+// The web-metric qualities, in display order. Each has a mark in assets/img/kamon.svg.
+const QUALITIES = ["accessibility", "performance", "visibility", "sustainability", "privacy-security", "agency", "longevity", "portability"];
 
 // Testing tools a metrics result can name. In each test address, {url} is the tested page
 // (URL-encoded), {rawUrl} the same unencoded, {host} its host name, and {slug} the page's
