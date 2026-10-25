@@ -122,17 +122,6 @@
     {%- endif %}
 
     <footer class="site-footer">
-      <p>© {{ "now" | year }} {{ site.name }}</p>
-      {%- set footerLinks = site.footerLinks[lang] if site.footerLinks else [] %}
-      {%- if footerLinks.length %}
-      <nav class="footer-nav" aria-label="{{ t.footerNav }}">
-        <ul>
-          {%- for l in footerLinks %}
-          <li><a href="{{ l.url }}"{% if l.url == page.url %} aria-current="page"{% endif %}>{{ l.text }}</a></li>
-          {%- endfor %}
-        </ul>
-      </nav>
-      {%- endif %}
       {%- if site.metrics and site.metrics.footer %}
       {#- One kamon mark per quality with results, each linking to its results on the metrics page. #}
       {%- set metricsPage = site.metrics.page[lang] or site.metrics.page.en %}
@@ -143,6 +132,17 @@
           {%- if (site.metrics.results | metricResults(q)).length %}
           <li><a href="{{ metricsPage }}#metric-{{ q }}"><svg class="kamon" width="40" height="40" aria-hidden="true" focusable="false"><use href="/theme/img/kamon.svg#kamon-{{ q }}"></use></svg><span>{{ t.qualities[q] }}</span></a></li>
           {%- endif %}
+          {%- endfor %}
+        </ul>
+      </nav>
+      {%- endif %}
+      <p>© {{ "now" | year }} {{ site.name }}</p>
+      {%- set footerLinks = site.footerLinks[lang] if site.footerLinks else [] %}
+      {%- if footerLinks.length %}
+      <nav class="footer-nav" aria-label="{{ t.footerNav }}">
+        <ul>
+          {%- for l in footerLinks %}
+          <li><a href="{{ l.url }}"{% if l.url == page.url %} aria-current="page"{% endif %}>{{ l.text }}</a></li>
           {%- endfor %}
         </ul>
       </nav>

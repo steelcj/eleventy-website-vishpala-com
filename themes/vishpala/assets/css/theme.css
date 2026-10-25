@@ -786,7 +786,13 @@ pre code { background: none; padding: 0; font-size: var(--fs-meta); }
 }
 
 .site-footer a { color: var(--colour-text-muted); text-decoration: underline; }
-.site-footer a:hover { color: var(--black); }
+/* Hover shows a link's clickable area in the focus colours, with a thinner outline than keyboard focus */
+.site-footer a:hover:not(:focus-visible) {
+  color: var(--black);
+  background-color: var(--colour-focus-bg);
+  outline: 1px solid var(--colour-focus);
+  outline-offset: 3px;
+}
 
 /* Goldmark-generated elements from markdown content inside blocks */
 .block > div > h2 {
@@ -1145,10 +1151,11 @@ pre code { background: none; padding: 0; font-size: var(--fs-meta); }
 
 .kamon { display: block; flex: none; color: var(--black); }
 
-/* Footer row: a full-width line of marks above the rest of the footer, four to a row on phones.
+/* Footer row: a full-width line of marks, first in the footer. As many fit on a line as there is room for,
+   each wide enough for a two-line label, and the rest wrap, at any width and for any number of marks.
    align-content keeps the footer's lines together when the homepage footer is taller than its content. */
 .site-footer:has(.metric-marks) { align-content: center; }
-.site-footer .metric-marks { flex-basis: 100%; order: -1; }
+.site-footer .metric-marks { flex-basis: 100%; }
 .metric-marks p { margin: 0 0 var(--space-sm); }
 .metric-marks p a { display: inline-flex; align-items: center; min-height: var(--target); }
 .metric-marks ul {
@@ -1156,7 +1163,7 @@ pre code { background: none; padding: 0; font-size: var(--fs-meta); }
   margin: 0;
   padding: 0;
   display: grid;
-  grid-template-columns: repeat(7, minmax(0, 6.5rem));
+  grid-template-columns: repeat(auto-fill, minmax(5.5rem, 1fr));
   gap: var(--space-sm);
 }
 .site-footer .metric-marks ul a {
@@ -1174,9 +1181,6 @@ pre code { background: none; padding: 0; font-size: var(--fs-meta); }
   color: var(--black);
 }
 .site-footer .metric-marks ul a:hover span { text-decoration: underline; }
-@media (max-width: 600px) {
-  .metric-marks ul { grid-template-columns: repeat(4, minmax(0, 1fr)); }
-}
 
 /* Results on the metrics pages: one mark and its results per quality */
 .metric-results {
