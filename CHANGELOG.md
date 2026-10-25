@@ -8,6 +8,7 @@ All notable changes are recorded here, in the form of [Keep a Changelog](https:/
 
 - `netlify.toml`: the Netlify build settings, a redirect from `/` to `/en/`, and security headers on every response: a Content Security Policy allowing only the site's own resources, HSTS, `X-Content-Type-Options`, `Referrer-Policy`, `Permissions-Policy` and `Cross-Origin-Opener-Policy`.
 - The fallback root page has a first-level heading.
+- The footer shows the site's Website Carbon result as text, with no remote script or image: rating A+, less than 0.01 g of CO₂ per visit, cleaner than 99% of web pages, tested 2026-10-24. The figures live in `site.json` under `carbon`, and the theme's new `localNumber` filter writes the number the page's language's way.
 
 ### Changed
 

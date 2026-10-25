@@ -1138,6 +1138,17 @@ pre code { background: none; padding: 0; font-size: var(--fs-meta); }
 }
 .footer-nav a:hover { color: var(--black); }
 
+/* Website Carbon result, written as text: no remote script or image */
+.site-footer .carbon-badge {
+  display: inline-flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0 var(--space-sm);
+  border: 2px solid var(--black);
+  padding: var(--space-xs) var(--space-sm);
+}
+.carbon-badge strong { color: var(--black); }
+
 /* Grid rows follow the original: header, main, then the footer takes any space left on the homepage.
    Pages with a hero row use header, hero, main (filling the space), footer. */
 .site-wrapper--hero { grid-template-rows: auto auto 1fr auto; }

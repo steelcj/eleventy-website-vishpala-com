@@ -13,5 +13,12 @@
         "url": "/en/contact/"
       }
     ]
+  },
+  "carbon": {
+    "rating": "A+",
+    "gramsBelow": 0.01,
+    "cleanerThan": 99,
+    "tested": "2026-10-24",
+    "url": "https://www.websitecarbon.com/website/eleventy-website-vishpala-netlify-app-en/"
   }
 }

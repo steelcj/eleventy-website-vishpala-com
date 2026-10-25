@@ -127,6 +127,9 @@
         </ul>
       </nav>
       {%- endif %}
+      {%- if site.carbon %}
+      <p class="carbon-badge"><a href="{{ site.carbon.url }}">{{ t.carbonRating }} <strong>{{ site.carbon.rating }}</strong></a> <span>{{ t.carbonPerVisit | replace("{g}", site.carbon.gramsBelow | localNumber(lang)) }},{% if site.carbon.cleanerThan %} {{ t.carbonCleaner | replace("{p}", site.carbon.cleanerThan | localNumber(lang)) }},{% endif %} {{ t.carbonTested }} <time datetime="{{ site.carbon.tested }}">{{ site.carbon.tested }}</time></span></p>
+      {%- endif %}
       <p><a href="{{ theme.licence.url }}" rel="license">{{ theme.licence.label }}</a></p>
     </footer>
 

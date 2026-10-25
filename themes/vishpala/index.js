@@ -33,6 +33,10 @@ const DEFAULT_STRINGS = {
     footerNav: "Footer",
     externalSite: "external site",
     breadcrumb: "Breadcrumb",
+    carbonRating: "Website Carbon rating",
+    carbonPerVisit: "less than {g} g of CO₂ per visit",
+    carbonCleaner: "cleaner than {p}% of web pages",
+    carbonTested: "tested",
   },
   fr: {
     skip: "Aller au contenu",
@@ -50,6 +54,10 @@ const DEFAULT_STRINGS = {
     footerNav: "Pied de page",
     externalSite: "site externe",
     breadcrumb: "Fil d’Ariane",
+    carbonRating: "Note Website Carbon",
+    carbonPerVisit: "moins de {g} g de CO₂ par visite",
+    carbonCleaner: "plus propre que {p}\u202f% des pages web",
+    carbonTested: "mesurée le",
   },
 };
 
@@ -113,6 +121,9 @@ export default function vishpalaTheme(eleventyConfig, userOptions = {}) {
   eleventyConfig.addFilter("logoColour", (colour) => options.logoColours[colour] || "yellow");
 
   eleventyConfig.addFilter("year", () => String(new Date().getFullYear()));
+
+  // A number written the way the page's language writes it: 0.01 in English, 0,01 in French.
+  eleventyConfig.addFilter("localNumber", (n, lang) => new Intl.NumberFormat(lang || "en").format(n));
 
   // Pages whose data field equals a value, for example resource entries in one category.
   eleventyConfig.addFilter("whereData", (pages, key, value) =>

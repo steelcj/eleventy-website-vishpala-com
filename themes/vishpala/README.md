@@ -22,11 +22,17 @@ Set the input directory before adding the plugin, so the theme knows where your 
 "footerLinks": { "en": [ { "text": "Contact", "url": "/en/contact/" } ] }
 ```
 
+An optional `carbon` object shows a Website Carbon result in the footer as plain text, with no remote script or image. Copy the figures from the site's result page after each test. `cleanerThan` is the percentage of web pages the site beats, and can be left out:
+
+```json
+"carbon": { "rating": "A+", "gramsBelow": 0.01, "cleanerThan": 99, "tested": "2026-10-24", "url": "https://www.websitecarbon.com/website/..." }
+```
+
 ## What the theme provides
 
 - **Layouts:** `layouts/base.njk`, `layouts/home.njk`, `layouts/section.njk`, `layouts/page.njk`, `layouts/service.njk`
 - **Assets** served from `/theme/`: the stylesheet, Atkinson Hyperlegible fonts, the Vishpala mark, the theme script and the search script
-- **Filters:** `byLang`, `translationsOf`, `whereData`, `breadcrumbs`, `sectionOf`, `sectionColour`, `logoColour`, `year`
+- **Filters:** `byLang`, `translationsOf`, `whereData`, `breadcrumbs`, `sectionOf`, `sectionColour`, `logoColour`, `year`, `localNumber`
 - **Shortcodes:** `breadcrumbNav` (accessible breadcrumb navigation) and `breadcrumbJsonLd` (schema.org `BreadcrumbList`)
 - **SEO files:** `/sitemap.xml` with `hreflang` alternates, and `/robots.txt`
 - The `@11ty/eleventy-navigation` plugin, used for menus and "Back to" links
