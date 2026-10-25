@@ -19,7 +19,8 @@
     "page": {
       "en": "/en/services/resources/web-metrics/",
       "fr": "/fr/services/ressources/mesures-web/",
-      "es": "/es/servicios/recursos/mediciones-web/"
+      "es": "/es/servicios/recursos/mediciones-web/",
+      "ar": "/ar/services/resources/web-metrics/"
     },
     "tested": "/en/",
     "results": [
@@ -29,7 +30,8 @@
         "result": {
           "en": "Accessibility score 100 on mobile and desktop",
           "fr": "Score d’accessibilité de 100 sur mobile et sur ordinateur",
-          "es": "Puntuación de accesibilidad de 100 en celulares y en computadoras"
+          "es": "Puntuación de accesibilidad de 100 en celulares y en computadoras",
+          "ar": "درجة إمكانية الوصول 100 على الهاتف المحمول والحاسوب"
         },
         "tested": "2026-10-24"
       },
@@ -39,7 +41,8 @@
         "result": {
           "en": "No errors and no contrast errors, AIM score 10 out of 10",
           "fr": "Aucune erreur ni aucune erreur de contraste, score AIM de 10 sur 10",
-          "es": "Ningún error ni error de contraste, puntuación AIM de 10 sobre 10"
+          "es": "Ningún error ni error de contraste, puntuación AIM de 10 sobre 10",
+          "ar": "لا أخطاء ولا أخطاء في التباين، ودرجة AIM هي 10 من 10"
         },
         "tested": "2026-10-24"
       },
@@ -49,7 +52,8 @@
         "result": {
           "en": "Performance score 100 on mobile and desktop, with 25 KiB per page",
           "fr": "Score de performance de 100 sur mobile et sur ordinateur, avec 25 Kio par page",
-          "es": "Puntuación de rendimiento de 100 en celulares y en computadoras, con 25 KiB por página"
+          "es": "Puntuación de rendimiento de 100 en celulares y en computadoras, con 25 KiB por página",
+          "ar": "درجة الأداء 100 على الهاتف المحمول والحاسوب، بحجم 25 KiB للصفحة"
         },
         "tested": "2026-10-24"
       },
@@ -59,7 +63,8 @@
         "result": {
           "en": "SEO score 100 on mobile and desktop",
           "fr": "Score SEO de 100 sur mobile et sur ordinateur",
-          "es": "Puntuación SEO de 100 en celulares y en computadoras"
+          "es": "Puntuación SEO de 100 en celulares y en computadoras",
+          "ar": "درجة SEO هي 100 على الهاتف المحمول والحاسوب"
         },
         "tested": "2026-10-24"
       },
@@ -69,7 +74,8 @@
         "result": {
           "en": "A+, cleaner than 99% of web pages, with less than 0.01 g of CO₂ per visit",
           "fr": "A+, plus propre que 99 % des pages web, avec moins de 0,01 g de CO₂ par visite",
-          "es": "A+, más limpia que el 99 % de las páginas web, con menos de 0.01 g de CO₂ por visita"
+          "es": "A+, más limpia que el 99 % de las páginas web, con menos de 0.01 g de CO₂ por visita",
+          "ar": "A+\u200e، أنظف من 99٪ من صفحات الويب، بأقل من 0.01 غرام من ثاني أكسيد الكربون لكل زيارة"
         },
         "tested": "2026-10-24"
       },
@@ -79,7 +85,8 @@
         "result": {
           "en": "A+, score 130, 12 of 12 tests passed",
           "fr": "A+, score de 130, 12 tests réussis sur 12",
-          "es": "A+, puntuación de 130, 12 de 12 pruebas superadas"
+          "es": "A+, puntuación de 130, 12 de 12 pruebas superadas",
+          "ar": "A+\u200e، والدرجة 130، ونجاح 12 من 12 اختبارًا"
         },
         "tested": "2026-10-24"
       },
@@ -89,7 +96,8 @@
         "result": {
           "en": "A+",
           "fr": "A+",
-          "es": "A+"
+          "es": "A+",
+          "ar": "A+\u200e"
         },
         "tested": "2026-10-24"
       },
@@ -98,7 +106,8 @@
         "result": {
           "en": "No tracking, advertising, cookies, pop-ups or deceptive patterns. The only thing the site remembers is the visitor's font choice, kept in their own browser, and its content is free to share and adapt under CC BY 4.0",
           "fr": "Aucun pistage, aucune publicité, aucun témoin, aucune fenêtre surgissante ni aucune astuce de conception trompeuse. Le site ne retient que le choix de police du visiteur, conservé dans son propre navigateur, et son contenu peut être partagé et adapté librement selon la licence CC BY 4.0",
-          "es": "Sin rastreo, publicidad, cookies, ventanas emergentes ni patrones engañosos. Lo único que el sitio recuerda es la fuente que elige cada visitante, guardada en su propio navegador, y su contenido se puede compartir y adaptar libremente con la licencia CC BY 4.0"
+          "es": "Sin rastreo, publicidad, cookies, ventanas emergentes ni patrones engañosos. Lo único que el sitio recuerda es la fuente que elige cada visitante, guardada en su propio navegador, y su contenido se puede compartir y adaptar libremente con la licencia CC BY 4.0",
+          "ar": "لا تتبع ولا إعلانات ولا ملفات تعريف ارتباط ولا نوافذ منبثقة ولا أنماط خادعة. الشيء الوحيد الذي يتذكره الموقع هو الخط الذي يختاره الزائر، ويُحفظ في متصفحه هو، ويمكن مشاركة محتوى الموقع وتعديله بحرية بموجب رخصة CC BY 4.0"
         },
         "tested": "2026-10-24"
       },
@@ -108,7 +117,8 @@
         "result": {
           "en": "No errors or warnings in the site's own HTML. On this Netlify test site, the checker stops at a script Netlify adds after the end of each page",
           "fr": "Aucune erreur ni aucun avertissement dans le HTML du site. Sur ce site de test hébergé par Netlify, le vérificateur s’arrête à un script que Netlify ajoute après la fin de chaque page",
-          "es": "Ningún error ni advertencia en el HTML propio del sitio. En este sitio de prueba de Netlify, el validador se detiene en un script que Netlify agrega después del final de cada página"
+          "es": "Ningún error ni advertencia en el HTML propio del sitio. En este sitio de prueba de Netlify, el validador se detiene en un script que Netlify agrega después del final de cada página",
+          "ar": "لا أخطاء ولا تحذيرات في HTML الخاص بالموقع. على موقع الاختبار هذا المستضاف على Netlify، يتوقف المدقق عند نص برمجي تضيفه Netlify بعد نهاية كل صفحة"
         },
         "tested": "2026-10-24"
       },
@@ -117,7 +127,8 @@
         "result": {
           "en": "The site's content is kept in portable formats, plain Markdown text and standard SVG images, so it can be reused elsewhere or with other products",
           "fr": "Le contenu du site est conservé dans des formats portables, du texte Markdown et des images SVG standard, et peut donc être réutilisé ailleurs ou avec d’autres produits",
-          "es": "El contenido del sitio se guarda en formatos portables, texto Markdown e imágenes SVG estándar, por lo que se puede reutilizar en otros lugares o con otros productos"
+          "es": "El contenido del sitio se guarda en formatos portables, texto Markdown e imágenes SVG estándar, por lo que se puede reutilizar en otros lugares o con otros productos",
+          "ar": "يُحفظ محتوى الموقع بصيغ قابلة للنقل، هي نصوص Markdown وصور SVG قياسية، لذا يمكن إعادة استخدامه في أماكن أخرى أو مع منتجات أخرى"
         },
         "tested": "2026-10-25"
       }

@@ -35,12 +35,12 @@ mainClass: site-main--page
     {%- set results = site.metrics.results | metricResults(q) %}
     {%- if results.length and (metricResults == "all" or metricResults == q) %}
     <li id="metric-{{ q }}">
-      <svg class="kamon" width="64" height="64" aria-hidden="true" focusable="false"><use href="/theme/img/kamon.svg#kamon-{{ q }}"></use></svg>
+      <svg class="kamon kamon-{{ q }}" width="64" height="64" aria-hidden="true" focusable="false"><use href="/theme/img/kamon.svg#kamon-{{ q }}"></use></svg>
       <div>
         <h3>{{ t.qualities[q] }}</h3>
         {%- for r in results %}
         {%- set tool = theme.metricTools[r.tool] %}
-        <p><strong>{{ tool.name if tool else t.metricsSelfAssessed }}</strong>, {{ t.metricsTested }} <time datetime="{{ r.tested }}">{{ r.tested }}</time>{{ t.colon }} {{ r.result | inLang(lang) }}.
+        <p><strong>{{ tool.name if tool else t.metricsSelfAssessed }}</strong>{{ t.comma }} {{ t.metricsTested }} <time datetime="{{ r.tested }}" dir="ltr">{{ r.tested }}</time>{{ t.colon }} {{ r.result | inLang(lang) }}.
           {%- if tool %} <a href="{{ r.tool | metricTestUrl(testedUrl) }}">{{ t.metricsTestYourself | replace("{tool}", tool.runner or tool.name) }}</a>{% endif %}</p>
         {%- endfor %}
       </div>

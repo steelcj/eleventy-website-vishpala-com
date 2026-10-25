@@ -46,7 +46,7 @@ An optional `metrics` object records the site's own results from web-metrics tes
 - **Layouts:** `layouts/base.njk`, `layouts/home.njk`, `layouts/section.njk`, `layouts/page.njk`, `layouts/service.njk`
 - **Assets** served from `/theme/`: the stylesheet, Atkinson Hyperlegible fonts, the Vishpala mark, a kamon mark for each quality (`img/kamon.svg`), the theme script and the search script
 - **Filters:** `byLang`, `translationsOf`, `whereData`, `breadcrumbs`, `sectionOf`, `sectionColour`, `logoColour`, `year`, `textDir`, `inLang`, `metricResults`, `metricTestUrl`
-- **Text direction:** each page's `<html>` has `dir="rtl"` or `dir="ltr"` for its language, and the styles use logical properties (start and end, not left and right), so right-to-left languages such as Arabic and Hebrew lay out as a mirror image
+- **Text direction:** each page's `<html>` has `dir="rtl"` or `dir="ltr"` for its language, and the styles use logical properties (start and end, not left and right), so right-to-left languages such as Arabic and Hebrew lay out as a mirror image, and the portability mark's way out points toward the end of the line
 - **Shortcodes:** `breadcrumbNav` (accessible breadcrumb navigation) and `breadcrumbJsonLd` (schema.org `BreadcrumbList`)
 - **SEO files:** `/sitemap.xml` with `hreflang` alternates, and `/robots.txt`
 - The `@11ty/eleventy-navigation` plugin, used for menus and "Back to" links
@@ -58,11 +58,11 @@ An optional `metrics` object records the site's own results from web-metrics tes
 | `sectionColours` | services red, solutions blue, who-we-serve yellow, approach blue, about white, contact yellow | Hero block colour for each first path segment after the language |
 | `defaultColour` | `white` | Hero colour for sections not listed |
 | `logoColours` | red→blue, blue→red, yellow→white, white→yellow | Colour of the logo block beside each hero colour |
-| `languageLabels` | English, Français, Español | Names shown in the language switcher |
+| `languageLabels` | English, Français, Español, العربية | Names shown in the language switcher |
 | `licence` | CC BY 4.0 | Footer licence link |
 | `search` | `true` | Show the search button and modal (needs Pagefind in the build) |
 | `sitemap` | `true` | Generate `sitemap.xml` and `robots.txt` |
-| `strings` | English, French and Spanish | Interface text per language, merged over the defaults |
+| `strings` | English, French, Spanish and Arabic | Interface text per language, merged over the defaults |
 
 ## Layouts
 
