@@ -161,6 +161,17 @@ export default function vishpalaTheme(eleventyConfig, userOptions = {}) {
 
   eleventyConfig.addFilter("year", () => String(new Date().getFullYear()));
 
+  // Text direction of a language, "rtl" or "ltr", from the Unicode data built into Intl.
+  eleventyConfig.addFilter("textDir", (lang) => {
+    try {
+      const locale = new Intl.Locale(lang || "en");
+      const info = locale.getTextInfo ? locale.getTextInfo() : locale.textInfo;
+      return (info && info.direction) || "ltr";
+    } catch {
+      return "ltr";
+    }
+  });
+
   // Text given per language ({ "en": "...", "fr": "..." }) in the page's language, else English.
   // Plain strings are returned as they are.
   eleventyConfig.addFilter("inLang", (value, lang) =>

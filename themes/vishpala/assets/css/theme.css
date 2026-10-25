@@ -922,7 +922,7 @@ pre code { background: none; padding: 0; font-size: var(--fs-meta); }
   flex-shrink: 0;
   background: none;
   border: none;
-  border-left: 2px solid var(--black);
+  border-inline-start: 2px solid var(--black);
   cursor: pointer;
   color: var(--colour-text-muted);
   min-width: var(--target);

@@ -18,7 +18,7 @@ blocks:
     url: /fr/services/
     text: "De la création de votre contenu jusqu’à sa lecture."
     featured:
-      text: "Mesures web : sept qualités d’un bon site web"
+      text: "Mesurer notre travail"
       url: /fr/services/ressources/mesures-web/
   - id: home-resources
     colour: blue
