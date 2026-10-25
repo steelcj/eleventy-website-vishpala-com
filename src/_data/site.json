@@ -17,55 +17,80 @@
   "metrics": {
     "footer": true,
     "page": {
-      "en": "/en/services/resources/web-metrics/"
+      "en": "/en/services/resources/web-metrics/",
+      "fr": "/fr/services/ressources/mesures-web/"
     },
     "tested": "/en/",
     "results": [
       {
         "quality": "accessibility",
         "tool": "lighthouse",
-        "result": "Accessibility score 100 on mobile and desktop",
+        "result": {
+          "en": "Accessibility score 100 on mobile and desktop",
+          "fr": "Score d’accessibilité de 100 sur mobile et sur ordinateur"
+        },
         "tested": "2026-10-24"
       },
       {
         "quality": "performance",
         "tool": "lighthouse",
-        "result": "Performance score 100 on mobile and desktop, with 25 KiB per page",
+        "result": {
+          "en": "Performance score 100 on mobile and desktop, with 25 KiB per page",
+          "fr": "Score de performance de 100 sur mobile et sur ordinateur, avec 25 Kio par page"
+        },
         "tested": "2026-10-24"
       },
       {
         "quality": "visibility",
         "tool": "lighthouse",
-        "result": "SEO score 100 on mobile and desktop",
+        "result": {
+          "en": "SEO score 100 on mobile and desktop",
+          "fr": "Score SEO de 100 sur mobile et sur ordinateur"
+        },
         "tested": "2026-10-24"
       },
       {
         "quality": "sustainability",
         "tool": "websitecarbon",
-        "result": "A+, cleaner than 99% of web pages, with less than 0.01 g of CO₂ per visit",
+        "result": {
+          "en": "A+, cleaner than 99% of web pages, with less than 0.01 g of CO₂ per visit",
+          "fr": "A+, plus propre que 99 % des pages web, avec moins de 0,01 g de CO₂ par visite"
+        },
         "tested": "2026-10-24"
       },
       {
         "quality": "privacy-security",
         "tool": "observatory",
-        "result": "A+, score 130, 12 of 12 tests passed",
+        "result": {
+          "en": "A+, score 130, 12 of 12 tests passed",
+          "fr": "A+, score de 130, 12 tests réussis sur 12"
+        },
         "tested": "2026-10-24"
       },
       {
         "quality": "privacy-security",
         "tool": "ssllabs",
-        "result": "A+",
+        "result": {
+          "en": "A+",
+          "fr": "A+"
+        },
         "tested": "2026-10-24"
       },
       {
         "quality": "agency",
-        "result": "No tracking, advertising, cookies, pop-ups or deceptive patterns. The only thing the site remembers is the visitor's font choice, kept in their own browser, and its content is free to share and adapt under CC BY 4.0",
+        "result": {
+          "en": "No tracking, advertising, cookies, pop-ups or deceptive patterns. The only thing the site remembers is the visitor's font choice, kept in their own browser, and its content is free to share and adapt under CC BY 4.0",
+          "fr": "Aucun pistage, aucune publicité, aucun témoin, aucune fenêtre surgissante ni aucune astuce de conception trompeuse. Le site ne retient que le choix de police du visiteur, conservé dans son propre navigateur, et son contenu peut être partagé et adapté librement selon la licence CC BY 4.0"
+        },
         "tested": "2026-10-24"
       },
       {
         "quality": "longevity",
         "tool": "w3c",
-        "result": "No errors or warnings in the site's own HTML. On this Netlify test site, the checker stops at a script Netlify adds after the end of each page",
+        "result": {
+          "en": "No errors or warnings in the site's own HTML. On this Netlify test site, the checker stops at a script Netlify adds after the end of each page",
+          "fr": "Aucune erreur ni aucun avertissement dans le HTML du site. Sur ce site de test hébergé par Netlify, le vérificateur s’arrête à un script que Netlify ajoute après la fin de chaque page"
+        },
         "tested": "2026-10-24"
       }
     ]

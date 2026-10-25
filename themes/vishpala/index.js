@@ -36,6 +36,7 @@ const DEFAULT_STRINGS = {
     metricsTitle: "How this site measures up",
     metricsIntro: "Results from independent testing tools. Run each test yourself to see what they say today.",
     metricsTested: "tested",
+    colon: ":",
     metricsTestYourself: "Test it yourself with {tool}",
     metricsSelfAssessed: "Our own review",
     qualities: {
@@ -67,6 +68,7 @@ const DEFAULT_STRINGS = {
     metricsTitle: "Ce site à l’épreuve",
     metricsIntro: "Résultats d’outils de test indépendants. Lancez chaque test vous-même pour voir ce qu’ils disent aujourd’hui.",
     metricsTested: "testé le",
+    colon: "\u00a0:",
     metricsTestYourself: "Testez vous-même avec {tool}",
     metricsSelfAssessed: "Notre propre examen",
     qualities: {

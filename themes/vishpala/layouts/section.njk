@@ -40,7 +40,7 @@ mainClass: site-main--page
         <h3>{{ t.qualities[q] }}</h3>
         {%- for r in results %}
         {%- set tool = theme.metricTools[r.tool] %}
-        <p><strong>{{ tool.name if tool else t.metricsSelfAssessed }}</strong>, {{ t.metricsTested }} <time datetime="{{ r.tested }}">{{ r.tested }}</time>: {{ r.result | inLang(lang) }}.
+        <p><strong>{{ tool.name if tool else t.metricsSelfAssessed }}</strong>, {{ t.metricsTested }} <time datetime="{{ r.tested }}">{{ r.tested }}</time>{{ t.colon }} {{ r.result | inLang(lang) }}.
           {%- if tool %} <a href="{{ r.tool | metricTestUrl(testedUrl) }}">{{ t.metricsTestYourself | replace("{tool}", tool.runner or tool.name) }}</a>{% endif %}</p>
         {%- endfor %}
       </div>
