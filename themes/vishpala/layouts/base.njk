@@ -153,7 +153,7 @@
   </div>
 
   {%- if theme.search %}
-  <div id="search-modal" class="search-modal" role="dialog" aria-modal="true" aria-label="{{ t.search }}" hidden>
+  <div id="search-modal" class="search-modal" role="dialog" aria-modal="true" aria-label="{{ t.search }}" data-strings="{{ t.searchText | dump | escape }}" hidden>
     <div class="search-modal-inner">
       <div class="search-bar">
         <label for="search-input" class="sr-only">{{ t.search }}</label>

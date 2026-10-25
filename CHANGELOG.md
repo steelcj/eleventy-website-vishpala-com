@@ -24,6 +24,7 @@ All notable changes are recorded here, in the form of [Keep a Changelog](https:/
 
 ### Fixed
 
+- Search messages are in the page's language, with its plural rules, from the Vishpala theme's interface text. Spanish searches showed English messages, and the French ones were written into the search script.
 - The site footer names the content licence as CC BY 4.0, matching decision 0001 and `REUSE.toml`; it said CC BY-SA 4.0. The Vishpala theme's default licence changes to match.
 - Atkinson Hyperlegible renders for all text when chosen. Each font subset now has its own `@font-face` rule and `unicode-range`; before, browsers loaded only the Latin Extended file, which has no basic Latin letters, and drew most text in a fallback font. Only the Latin files download now. The home page transfers about 24 KiB in all, none of it from other sites, and Lighthouse scores performance 100 on mobile and desktop.
 - On section pages, the hero with the page's heading is inside `main`, so "Skip to content" lands on the heading instead of skipping past it, and every part of the page sits in a landmark. Search still indexes only the content below the hero.

@@ -12,6 +12,16 @@
 
   if (!trigger || !modal || !input || !results) return;
 
+  // Interface text in the page's language, from the theme's strings (data-strings on the modal).
+  // Result counts use the language's plural rules: { one: "{n} result", other: "{n} results" }.
+  let text = {};
+  try { text = JSON.parse(modal.dataset.strings || '{}'); } catch (e) { /* keep the fallbacks below */ }
+  const plurals = new Intl.PluralRules(document.documentElement.lang || 'en');
+  function countText(n) {
+    const forms = text.count || {};
+    return (forms[plurals.select(n)] || forms.other || '{n}').replace('{n}', n);
+  }
+
   let pagefind   = null;
   let isOpen     = false;
   let loadPromise = null;
@@ -24,16 +34,10 @@
       .then(pf => { pagefind = pf; return pf; })
       .catch(err => {
         console.warn('Pagefind not available. Run npm run build first.', err);
-        status.textContent = lang() === 'fr'
-          ? 'Index de recherche non disponible. Lancez d\'abord npm run build.'
-          : 'Search index not available. Run npm run build first.';
+        status.textContent = text.unavailable || 'Search index not available. Run npm run build first.';
         return null;
       });
     return loadPromise;
-  }
-
-  function lang() {
-    return (document.documentElement.lang || '').toLowerCase().startsWith('fr') ? 'fr' : 'en';
   }
 
   /* ── Modal open / close ─────────────────────────────────────────────────── */
@@ -100,15 +104,11 @@
 
     if (!search || search.results.length === 0) {
       results.innerHTML = '';
-      status.textContent = lang() === 'fr'
-        ? `Aucun résultat pour « ${esc(q)} »`
-        : `No results for "${esc(q)}"`;
+      status.textContent = (text.none || 'No results for "{query}"').replace('{query}', q);
       return;
     }
 
-    status.textContent = lang() === 'fr'
-      ? `${search.results.length} résultat${search.results.length > 1 ? 's' : ''}`
-      : `${search.results.length} result${search.results.length > 1 ? 's' : ''}`;
+    status.textContent = countText(search.results.length);
 
     // Load first 8 results in parallel
     const data = await Promise.all(
