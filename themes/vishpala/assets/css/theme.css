@@ -185,9 +185,11 @@ body {
 .site-header {
   background: var(--white);
   padding: 1.5rem;
-  display: grid;
-  grid-template-columns: 1fr auto;
-  grid-template-rows: auto auto;
+  /* A wrapping row in reading order: the logo, then the controls, which move under the logo
+     when there is no room beside it, then the Menu button and the menu, each on a line of its own. */
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
   align-items: center;
   gap: 0.75rem 1rem;
 }
@@ -197,8 +199,6 @@ body {
   align-items: center;
   gap: 12px;
   text-decoration: none;
-  grid-column: 1;
-  grid-row: 1;
 }
 
 .site-logo {
@@ -218,10 +218,8 @@ body {
 
 .site-title-lockup:hover .site-title { color: var(--blue); }
 
-/* Controls: language + search icon — top right */
+/* Controls: language, font and search — top right, or under the logo on narrow screens */
 .site-header-controls {
-  grid-column: 2;
-  grid-row: 1;
   display: flex;
   align-items: center;
   gap: 0.5rem;
@@ -395,8 +393,7 @@ body {
 
 /* Nav — full width below title and controls */
 .site-nav {
-  grid-column: 1 / -1;
-  grid-row: 2;
+  flex-basis: 100%;
 }
 
 .site-nav ul {
@@ -509,6 +506,11 @@ body {
   .block-resources,
   .block-about { grid-column: 1 / -1; }
 
+  /* On phones the controls have a line of their own under the logo, and their menus open towards the line's end */
+  .site-header-controls { flex-basis: 100%; }
+  .lang-switcher-panel,
+  .font-switcher-panel { inset-inline-end: auto; inset-inline-start: 0; }
+
   /* Show burger button */
   .menu-toggle {
     display: flex;
@@ -524,8 +526,7 @@ body {
     font-weight: 700;
     letter-spacing: 0.05em;
     color: var(--black);
-    grid-column: 1 / -1;
-    grid-row: 3;
+    flex-basis: 100%;
   }
 
   .menu-toggle:hover {
@@ -536,8 +537,6 @@ body {
   /* Hide nav by default; show when open */
   .site-nav {
     display: none;
-    grid-column: 1 / -1;
-    grid-row: 4;
   }
 
   .site-nav[data-open] {
@@ -970,7 +969,7 @@ pre code { background: none; padding: 0; font-size: var(--fs-meta); }
 .search-result-link:focus {
   background: var(--colour-focus-bg);
   outline: none;
-  padding-left: 0.5rem;
+  padding-inline-start: 0.5rem;
 }
 
 .search-result-title {
